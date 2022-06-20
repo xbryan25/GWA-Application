@@ -1,9 +1,11 @@
 import tkinter as tk
 
 
-def intro_buttons(window):
-    update_button = tk.Button(window, text="Update", font=("Helvetica", 25), command=lambda: intro_decision('update')).grid(row=0, padx=(90, 100), pady=120)
-    calculate_button = tk.Button(window, text="Calculate", font=("Helvetica", 25), command=lambda: intro_decision('calculate')).grid(row=0, padx=(30, 100), column=1)
+class Buttons:
+    def __init__(self, window):
+        # Intro buttons
+        self.update_button = tk.Button(window, text="Update", font=("Helvetica", 25), command=lambda: intro_decision('update')).grid(row=0, padx=(90, 100), pady=120)
+        self.calculate_button = tk.Button(window, text="Calculate", font=("Helvetica", 25), command=lambda: intro_decision('calculate')).grid(row=0, padx=(30, 100), column=1)
 
 
 def intro_decision(decision):
@@ -22,7 +24,7 @@ def main():
     window.configure(background="black")
     window.geometry('600x300')
 
-    intro_buttons(window)
+    buttons = Buttons(window)
 
     window.mainloop()
 
