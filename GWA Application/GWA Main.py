@@ -26,6 +26,9 @@ class IntroButtons:
 
 
 class UpdateButtons:
+    # Grade 7 grades
+    g7_grades = [1.0, 1.0]
+
     def __init__(self, window):
         # Grade levels
         self.window = window
@@ -91,9 +94,11 @@ class UpdateButtons:
         # Grade 7 buttons
         g7_is_label = tk.Label(self.window, text="Integrated Science", font=("Helvetica", 10))
         g7_is_label.grid(row=0, column=1)
-        g7_is_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: print('-'))
+        g7_is_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: self.grade_change('-', UpdateButtons.g7_grades[0], g7_is_grade_label, 0))
         g7_is_minus_button.grid(row=1, column=0)
-        g7_is_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: print('+'))
+        g7_is_grade_label = tk.Label(self.window, text=f"{UpdateButtons.g7_grades[0]}", font=("Helvetica", 10))
+        g7_is_grade_label.grid(row=1, column=1)
+        g7_is_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', UpdateButtons.g7_grades[0], g7_is_grade_label, 0))
         g7_is_add_button.grid(row=1, column=2)
 
         g7_math_label = tk.Label(self.window, text="Mathematics", font=("Helvetica", 10))
@@ -151,6 +156,19 @@ class UpdateButtons:
         g7_cs_minus_button.grid(row=9, column=0)
         g7_cs_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: print('+'))
         g7_cs_add_button.grid(row=9, column=2)
+
+    @staticmethod
+    def grade_change(operation, grade, label, index):
+        if operation == '+':
+            if grade < 5.0:
+                grade += 0.25
+                UpdateButtons.g7_grades[index] = grade
+                label.config(text=f"{grade}", font=("Helvetica", 10))
+        elif operation == '-':
+            if grade > 1.0:
+                grade -= 0.25
+                UpdateButtons.g7_grades[index] = grade
+                label.config(text=f"{grade}", font=("Helvetica", 10))
 
 def main():
     window = tk.Tk()
