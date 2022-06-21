@@ -27,7 +27,7 @@ class IntroButtons:
 
 class UpdateButtons:
     # Grade 7 grades
-    g7_grades = [1.0, 1.0]
+    g7_grades = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
 
     def __init__(self, window):
         # Grade levels
@@ -103,58 +103,74 @@ class UpdateButtons:
 
         g7_math_label = tk.Label(self.window, text="Mathematics", font=("Helvetica", 10))
         g7_math_label.grid(row=0, column=4)
-        g7_math_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: print('-'))
+        g7_math_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: self.grade_change('-', UpdateButtons.g7_grades[1], g7_math_grade_label, 1))
         g7_math_minus_button.grid(row=1, column=3)
-        g7_math_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: print('+'))
+        g7_math_grade_label = tk.Label(self.window, text=f"{UpdateButtons.g7_grades[1]}", font=("Helvetica", 10))
+        g7_math_grade_label.grid(row=1, column=4)
+        g7_math_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', UpdateButtons.g7_grades[1], g7_math_grade_label, 1))
         g7_math_add_button.grid(row=1, column=5)
 
         g7_eng_label = tk.Label(self.window, text="English", font=("Helvetica", 10))
         g7_eng_label.grid(row=2, column=1)
-        g7_eng_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: print('-'))
+        g7_eng_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: self.grade_change('-', UpdateButtons.g7_grades[2], g7_eng_grade_label, 2))
         g7_eng_minus_button.grid(row=3, column=0)
-        g7_eng_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: print('+'))
+        g7_eng_grade_label = tk.Label(self.window, text=f"{UpdateButtons.g7_grades[2]}", font=("Helvetica", 10))
+        g7_eng_grade_label.grid(row=3, column=1)
+        g7_eng_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', UpdateButtons.g7_grades[2], g7_eng_grade_label, 2))
         g7_eng_add_button.grid(row=3, column=2)
 
         g7_fil_label = tk.Label(self.window, text="Filipino", font=("Helvetica", 10))
         g7_fil_label.grid(row=2, column=4)
-        g7_fil_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: print('-'))
+        g7_fil_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: self.grade_change('-', UpdateButtons.g7_grades[3], g7_fil_grade_label, 3))
         g7_fil_minus_button.grid(row=3, column=3)
-        g7_fil_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: print('+'))
+        g7_fil_grade_label = tk.Label(self.window, text=f"{UpdateButtons.g7_grades[3]}", font=("Helvetica", 10))
+        g7_fil_grade_label.grid(row=3, column=4)
+        g7_fil_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', UpdateButtons.g7_grades[3], g7_fil_grade_label, 3))
         g7_fil_add_button.grid(row=3, column=5)
 
         g7_ss_label = tk.Label(self.window, text="Social Science", font=("Helvetica", 10))
         g7_ss_label.grid(row=4, column=1)
-        g7_ss_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: print('-'))
+        g7_ss_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: self.grade_change('-', UpdateButtons.g7_grades[4], g7_ss_grade_label, 4))
         g7_ss_minus_button.grid(row=5, column=0)
-        g7_ss_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: print('+'))
+        g7_ss_grade_label = tk.Label(self.window, text=f"{UpdateButtons.g7_grades[4]}", font=("Helvetica", 10))
+        g7_ss_grade_label.grid(row=5, column=1)
+        g7_ss_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', UpdateButtons.g7_grades[4], g7_ss_grade_label, 4))
         g7_ss_add_button.grid(row=5, column=2)
 
         g7_pehm_label = tk.Label(self.window, text="PEHM", font=("Helvetica", 10))
         g7_pehm_label.grid(row=4, column=4)
-        g7_pehm_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: print('-'))
+        g7_pehm_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: self.grade_change('-', UpdateButtons.g7_grades[5], g7_pehm_grade_label, 5))
         g7_pehm_minus_button.grid(row=5, column=3)
-        g7_pehm_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: print('+'))
+        g7_pehm_grade_label = tk.Label(self.window, text=f"{UpdateButtons.g7_grades[5]}", font=("Helvetica", 10))
+        g7_pehm_grade_label.grid(row=5, column=4)
+        g7_pehm_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', UpdateButtons.g7_grades[5], g7_pehm_grade_label, 5))
         g7_pehm_add_button.grid(row=5, column=5)
 
         g7_valed_label = tk.Label(self.window, text="Values Education", font=("Helvetica", 10))
         g7_valed_label.grid(row=6, column=1)
-        g7_valed_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: print('-'))
+        g7_valed_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: self.grade_change('-', UpdateButtons.g7_grades[6], g7_valed_grade_label, 6))
         g7_valed_minus_button.grid(row=7, column=0)
-        g7_valed_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: print('+'))
+        g7_valed_grade_label = tk.Label(self.window, text=f"{UpdateButtons.g7_grades[6]}", font=("Helvetica", 10))
+        g7_valed_grade_label.grid(row=7, column=1)
+        g7_valed_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', UpdateButtons.g7_grades[6], g7_valed_grade_label, 6))
         g7_valed_add_button.grid(row=7, column=2)
 
-        g7_adtech_label = tk.Label(self.window, text="PEHM", font=("Helvetica", 10))
+        g7_adtech_label = tk.Label(self.window, text="Adtech", font=("Helvetica", 10))
         g7_adtech_label.grid(row=6, column=4)
-        g7_adtech_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: print('-'))
+        g7_adtech_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: self.grade_change('-', UpdateButtons.g7_grades[7], g7_adtech_grade_label, 7))
         g7_adtech_minus_button.grid(row=7, column=3)
-        g7_adtech_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: print('+'))
+        g7_adtech_grade_label = tk.Label(self.window, text=f"{UpdateButtons.g7_grades[7]}", font=("Helvetica", 10))
+        g7_adtech_grade_label.grid(row=7, column=4)
+        g7_adtech_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', UpdateButtons.g7_grades[7], g7_adtech_grade_label, 7))
         g7_adtech_add_button.grid(row=7, column=5)
 
         g7_cs_label = tk.Label(self.window, text="Computer Science", font=("Helvetica", 10))
         g7_cs_label.grid(row=8, column=1)
-        g7_cs_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: print('-'))
+        g7_cs_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: self.grade_change('-', UpdateButtons.g7_grades[8], g7_cs_grade_label, 8))
         g7_cs_minus_button.grid(row=9, column=0)
-        g7_cs_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: print('+'))
+        g7_cs_grade_label = tk.Label(self.window, text=f"{UpdateButtons.g7_grades[8]}", font=("Helvetica", 10))
+        g7_cs_grade_label.grid(row=9, column=1)
+        g7_cs_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', UpdateButtons.g7_grades[8], g7_cs_grade_label, 8))
         g7_cs_add_button.grid(row=9, column=2)
 
     @staticmethod
