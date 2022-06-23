@@ -188,11 +188,15 @@ class UpdateButtons:
                       g7_cs_label, g7_cs_minus_button, g7_cs_grade_label, g7_cs_add_button]
 
     def g8_update(self):
+        # Back button
+        back_button = tk.Button(self.window, text="←", font=("Helvetica", 15), command=lambda: self.back_decision(1, g8_buttons))
+        back_button.place(x=10, y=20)
+
         # Grade 8 buttons
         g8_is_label = tk.Label(self.window, text="Integrated Science", font=("Helvetica", 10))
         g8_is_label.grid(row=0, column=1)
         g8_is_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: self.grade_change('-', UpdateButtons.g8_grades[0], g8_is_grade_label, 0, 8))
-        g8_is_minus_button.grid(row=1, column=0)
+        g8_is_minus_button.grid(row=1, column=0, padx=(200, 0))
         g8_is_grade_label = tk.Label(self.window, text=f"{UpdateButtons.g8_grades[0]}", font=("Helvetica", 10))
         g8_is_grade_label.grid(row=1, column=1)
         g8_is_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', UpdateButtons.g8_grades[0], g8_is_grade_label, 0, 8))
@@ -210,7 +214,7 @@ class UpdateButtons:
         g8_eng_label = tk.Label(self.window, text="English", font=("Helvetica", 10))
         g8_eng_label.grid(row=2, column=1)
         g8_eng_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: self.grade_change('-', UpdateButtons.g8_grades[2], g8_eng_grade_label, 2, 8))
-        g8_eng_minus_button.grid(row=3, column=0)
+        g8_eng_minus_button.grid(row=3, column=0, padx=(200, 0))
         g8_eng_grade_label = tk.Label(self.window, text=f"{UpdateButtons.g8_grades[2]}", font=("Helvetica", 10))
         g8_eng_grade_label.grid(row=3, column=1)
         g8_eng_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', UpdateButtons.g8_grades[2], g8_eng_grade_label, 2, 8))
@@ -228,7 +232,7 @@ class UpdateButtons:
         g8_ss_label = tk.Label(self.window, text="Social Science", font=("Helvetica", 10))
         g8_ss_label.grid(row=4, column=1)
         g8_ss_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: self.grade_change('-', UpdateButtons.g8_grades[4], g8_ss_grade_label, 4, 8))
-        g8_ss_minus_button.grid(row=5, column=0)
+        g8_ss_minus_button.grid(row=5, column=0, padx=(200, 0))
         g8_ss_grade_label = tk.Label(self.window, text=f"{UpdateButtons.g8_grades[4]}", font=("Helvetica", 10))
         g8_ss_grade_label.grid(row=5, column=1)
         g8_ss_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', UpdateButtons.g8_grades[4], g8_ss_grade_label, 4, 8))
@@ -246,7 +250,7 @@ class UpdateButtons:
         g8_valed_label = tk.Label(self.window, text="Values Education", font=("Helvetica", 10))
         g8_valed_label.grid(row=6, column=1)
         g8_valed_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: self.grade_change('-', UpdateButtons.g8_grades[6], g8_valed_grade_label, 6, 8))
-        g8_valed_minus_button.grid(row=7, column=0)
+        g8_valed_minus_button.grid(row=7, column=0, padx=(200, 0))
         g8_valed_grade_label = tk.Label(self.window, text=f"{UpdateButtons.g8_grades[6]}", font=("Helvetica", 10))
         g8_valed_grade_label.grid(row=7, column=1)
         g8_valed_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', UpdateButtons.g8_grades[6], g8_valed_grade_label, 6, 8))
@@ -264,7 +268,7 @@ class UpdateButtons:
         g8_cs_label = tk.Label(self.window, text="Computer Science", font=("Helvetica", 10))
         g8_cs_label.grid(row=8, column=1)
         g8_cs_minus_button = tk.Button(self.window, text="-", font=("Helvetica", 10), command=lambda: self.grade_change('-', UpdateButtons.g8_grades[8], g8_cs_grade_label, 8, 8))
-        g8_cs_minus_button.grid(row=9, column=0)
+        g8_cs_minus_button.grid(row=9, column=0, padx=(200, 0))
         g8_cs_grade_label = tk.Label(self.window, text=f"{UpdateButtons.g8_grades[8]}", font=("Helvetica", 10))
         g8_cs_grade_label.grid(row=9, column=1)
         g8_cs_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', UpdateButtons.g8_grades[8], g8_cs_grade_label, 8, 8))
@@ -278,6 +282,17 @@ class UpdateButtons:
         g8_es_grade_label.grid(row=9, column=4)
         g8_es_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', UpdateButtons.g8_grades[9], g8_es_grade_label, 9, 8))
         g8_es_add_button.grid(row=9, column=5)
+
+        g8_buttons = [g8_is_label, g8_is_minus_button, g8_is_grade_label, g8_is_add_button,
+                      g8_math_label, g8_math_minus_button, g8_math_grade_label, g8_math_add_button,
+                      g8_eng_label, g8_eng_minus_button, g8_eng_grade_label, g8_eng_add_button,
+                      g8_fil_label, g8_fil_minus_button, g8_fil_grade_label, g8_fil_add_button,
+                      g8_ss_label, g8_ss_minus_button, g8_ss_grade_label, g8_ss_add_button,
+                      g8_pehm_label, g8_pehm_minus_button, g8_pehm_grade_label, g8_pehm_add_button,
+                      g8_valed_label, g8_valed_minus_button, g8_valed_grade_label, g8_valed_add_button,
+                      g8_adtech_label, g8_adtech_minus_button, g8_adtech_grade_label, g8_adtech_add_button,
+                      g8_cs_label, g8_cs_minus_button, g8_cs_grade_label, g8_cs_add_button,
+                      g8_es_label, g8_es_minus_button, g8_es_grade_label, g8_es_add_button]
 
     def g9_update(self):
         # Grade 9 buttons
