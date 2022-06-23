@@ -1,5 +1,6 @@
 import tkinter as tk
 
+
 class IntroButtons:
     def __init__(self, window):
         # Intro buttons
@@ -34,28 +35,44 @@ class UpdateButtons:
     g12_grades = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
 
     def __init__(self, window):
+        # Back button
+        self.back_button = tk.Button(window, text="←", font=("Helvetica", 15))
+        self.back_button.place(x=10, y=20)
+
         # Grade levels
         self.window = window
         self.g7_button = tk.Button(window, text="Grade 7 ", font=("Helvetica", 20), command=lambda: self.grade_decision('7'))
-        self.g7_button.grid(row=0, padx=(90, 100), pady=20)
+        self.g7_button.grid(row=1, padx=(90, 100), pady=20)
         self.g8_button = tk.Button(window, text="Grade 8 ", font=("Helvetica", 20), command=lambda: self.grade_decision('8'))
-        self.g8_button.grid(row=0, padx=(30, 100), column=1)
+        self.g8_button.grid(row=1, padx=(30, 100), column=1)
         self.g9_button = tk.Button(window, text="Grade 9 ", font=("Helvetica", 20), command=lambda: self.grade_decision('9'))
-        self.g9_button.grid(row=1, padx=(90, 100), pady=20)
+        self.g9_button.grid(row=2, padx=(90, 100), pady=20)
         self.g10_button = tk.Button(window, text="Grade 10", font=("Helvetica", 20), command=lambda: self.grade_decision('10'))
-        self.g10_button.grid(row=1, padx=(35, 100), column=1)
+        self.g10_button.grid(row=2, padx=(35, 100), column=1)
         self.g11_button = tk.Button(window, text="Grade 11", font=("Helvetica", 20), command=lambda: self.grade_decision('11'))
-        self.g11_button.grid(row=2, padx=(90, 100), pady=20)
+        self.g11_button.grid(row=3, padx=(90, 100), pady=20)
         self.g12_button = tk.Button(window, text="Grade 12", font=("Helvetica", 20), command=lambda: self.grade_decision('12'))
-        self.g12_button.grid(row=2, padx=(35, 100), column=1)
+        self.g12_button.grid(row=3, padx=(35, 100), column=1)
+
+    def back_decision(self, state):
+        if state == 0:
+            self.back_button.destroy()
+            self.g7_button.destroy()
+            self.g8_button.destroy()
+            self.g9_button.destroy()
+            self.g10_button.destroy()
+            self.g11_button.destroy()
+            self.g12_button.destroy()
+            buttons = IntroButtons(self.window)
 
     def grade_decision(self, decision):
-        self.g7_button.grid_remove()
-        self.g8_button.grid_remove()
-        self.g9_button.grid_remove()
-        self.g10_button.grid_remove()
-        self.g11_button.grid_remove()
-        self.g12_button.grid_remove()
+        self.back_button.destroy()
+        self.g7_button.destroy()
+        self.g8_button.destroy()
+        self.g9_button.destroy()
+        self.g10_button.destroy()
+        self.g11_button.destroy()
+        self.g12_button.destroy()
 
         if decision == '7':
             self.g7_update()
