@@ -1,4 +1,5 @@
 import tkinter as tk
+import csv
 
 
 class IntroButtons:
@@ -706,3 +707,12 @@ class UpdateButtons:
                     UpdateButtons.g12_grades[index] = grade
 
                 label.config(text=f"{grade}", font=("Helvetica", 10))
+
+    @staticmethod
+    def gwa_calculation(grade_level, grades):
+        if grade_level == 7:
+            pass
+
+
+class Credits:
+    pass
