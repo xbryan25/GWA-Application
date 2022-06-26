@@ -858,25 +858,42 @@ class CalculateButtons:
 class AboutThisApp:
     def __init__(self, window):
         # Back button
-        # self.back_button = tk.Button(window, text="←", font=("Helvetica", 15), command=lambda: self.back_decision(0))
-        # self.back_button.place(x=10, y=20)
+        self.back_button = tk.Button(window, text="←", font=("Helvetica", 15), command=lambda: self.back_decision(widget_list))
+        self.back_button.place(x=10, y=20)
 
-        # Grade levels
+        # Text
         self.window = window
-        self.about_me = tk.Label(window, text="About this app", font=("Helvetica", 20), bg='black', fg='white')
-        self.about_me.place(x=75, y=25)
+        about_me = tk.Label(window, text="About this app", font=("Helvetica", 20), bg='black', fg='white')
+        about_me.place(x=75, y=25)
 
-        self.app_description = tk.Label(window, text="This is an application for the PSHS grading system", font=("Helvetica", 14), bg='black', fg='white')
-        self.app_description.place(x=100, y=100)
+        app_description = tk.Label(window, text="This is an application for the PSHS grading system", font=("Helvetica", 14), bg='black', fg='white')
+        app_description.place(x=100, y=100)
 
-        self.app_description2 = tk.Label(window, text="that includes storage of GWA (General Weighted", font=("Helvetica", 14), bg='black', fg='white')
-        self.app_description2.place(x=100, y=125)
+        app_description2 = tk.Label(window, text="that includes storage of GWA (General Weighted", font=("Helvetica", 14), bg='black', fg='white')
+        app_description2.place(x=100, y=125)
 
-        self.app_description2 = tk.Label(window, text="Average), and GWA calculation for all grade levels.", font=("Helvetica", 14), bg='black', fg='white')
-        self.app_description2.place(x=100, y=150)
+        app_description3 = tk.Label(window, text="Average), and GWA calculation for all grade levels.", font=("Helvetica", 14), bg='black', fg='white')
+        app_description3.place(x=100, y=150)
 
-        self.created_by = tk.Label(window, text="Created by xbryan25 (Bryan Agan)", font=("Helvetica", 15), bg='black', fg='white')
-        self.created_by.place(x=100, y=200)
+        created_by = tk.Label(window, text="xbryan25", font=("Helvetica", 15), bg='black', fg='white')
+        created_by.place(x=425, y=225)
 
-        self.version = tk.Label(window, text="v1.0 (06-26-22)", font=("Helvetica", 15), bg='black', fg='white')
-        self.version.place(x=100, y=225)
+        version = tk.Label(window, text="v1.0 (06-26-22)", font=("Helvetica", 15), bg='black', fg='white')
+        version.place(x=425, y=250)
+
+        # GitHub picture
+        github_pic = tk.PhotoImage(file='github.png')
+        github_label = tk.Label(window, image=github_pic, width=24, height=24, fg='white')
+        github_label.image = github_pic
+        github_label.place(x=395, y=225)
+
+        # Widget list
+        widget_list = [about_me, app_description, app_description2, app_description3, created_by,
+                       version, github_label]
+
+    def back_decision(self, widget_list):
+        for widget in widget_list:
+            widget.destroy()
+        self.back_button.destroy()
+
+        buttons = IntroButtons(self.window)
