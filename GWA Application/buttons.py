@@ -1,5 +1,5 @@
 import tkinter as tk
-import csv
+# import csv
 
 
 class IntroButtons:
@@ -7,21 +7,21 @@ class IntroButtons:
         # Intro buttons
         self.window = window
         self.calculate_button = tk.Button(window, text="Calculate", font=("Helvetica", 25), command=lambda: self.intro_decision('calculate'))
-        self.calculate_button.grid(row=0, padx=(90, 100), pady=120)
-        self.credits_button = tk.Button(window, text="Credits", font=("Helvetica", 25), command=lambda: self.intro_decision('credits'))
-        self.credits_button.grid(row=0, padx=(30, 100), column=1)
+        self.calculate_button.grid(row=0, padx=(220, 0), pady=(120, 60))
+        self.credits_button = tk.Button(window, text="About this app", font=("Helvetica", 15), command=lambda: self.intro_decision('about_this_app'))
+        self.credits_button.grid(row=1, padx=(60, 100), column=1)
 
     def intro_decision(self, decision):
         if decision == 'calculate':
             self.window.config(bg='white')
             self.calculate_button.grid_remove()
             self.credits_button.grid_remove()
-            update_buttons = CalculateButtons(self.window)
+            CalculateButtons(self.window)
 
-        elif decision == 'credits':
-            print('calculate')
+        elif decision == 'about_this_app':
             self.calculate_button.grid_remove()
             self.credits_button.grid_remove()
+            AboutThisApp(self.window)
 
 
 class CalculateButtons:
@@ -855,5 +855,28 @@ class CalculateButtons:
             gwa_label.config(text=gwa_grade_12)
 
 
-class Credits:
-    pass
+class AboutThisApp:
+    def __init__(self, window):
+        # Back button
+        # self.back_button = tk.Button(window, text="←", font=("Helvetica", 15), command=lambda: self.back_decision(0))
+        # self.back_button.place(x=10, y=20)
+
+        # Grade levels
+        self.window = window
+        self.about_me = tk.Label(window, text="About this app", font=("Helvetica", 20), bg='black', fg='white')
+        self.about_me.place(x=75, y=25)
+
+        self.app_description = tk.Label(window, text="This is an application for the PSHS grading system", font=("Helvetica", 14), bg='black', fg='white')
+        self.app_description.place(x=100, y=100)
+
+        self.app_description2 = tk.Label(window, text="that includes storage of GWA (General Weighted", font=("Helvetica", 14), bg='black', fg='white')
+        self.app_description2.place(x=100, y=125)
+
+        self.app_description2 = tk.Label(window, text="Average), and GWA calculation for all grade levels.", font=("Helvetica", 14), bg='black', fg='white')
+        self.app_description2.place(x=100, y=150)
+
+        self.created_by = tk.Label(window, text="Created by xbryan25 (Bryan Agan)", font=("Helvetica", 15), bg='black', fg='white')
+        self.created_by.place(x=100, y=200)
+
+        self.version = tk.Label(window, text="v1.0 (06-26-22)", font=("Helvetica", 15), bg='black', fg='white')
+        self.version.place(x=100, y=225)
