@@ -878,7 +878,7 @@ class AboutThisApp:
         created_by = tk.Label(window, text="xbryan25", font=("Helvetica", 15), bg='black', fg='white')
         created_by.place(x=425, y=225)
 
-        version = tk.Label(window, text="v1.0 (06-26-22)", font=("Helvetica", 15), bg='black', fg='white')
+        version = tk.Label(window, text="v(u) (06-26-22)", font=("Helvetica", 15), bg='black', fg='white')
         version.place(x=425, y=250)
 
         # GitHub picture
@@ -896,4 +896,4 @@ class AboutThisApp:
             widget.destroy()
         self.back_button.destroy()
 
-        buttons = IntroButtons(self.window)
+        IntroButtons(self.window)
