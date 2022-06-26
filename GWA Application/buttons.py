@@ -33,7 +33,7 @@ class CalculateButtons:
     g11_grades = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
     g12_grades = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
 
-    def __init__(self, window, state=0):
+    def __init__(self, window):
         # Back button
         self.back_button = tk.Button(window, text="←", font=("Helvetica", 15), command=lambda: self.back_decision(0))
         self.back_button.place(x=10, y=20)
@@ -104,6 +104,8 @@ class CalculateButtons:
         # Back button
         back_button = tk.Button(self.window, text="←", font=("Helvetica", 15), command=lambda: self.back_decision(1, g7_buttons))
         back_button.place(x=10, y=20)
+
+        self.gwa_calculation(7)
 
         # Grade 7 buttons
         g7_is_label = tk.Label(self.window, text="Integrated Science", font=("Helvetica", 10))
@@ -676,14 +678,14 @@ class CalculateButtons:
                        g12_elec_label, g12_elec_minus_button, g12_elec_grade_label, g12_elec_add_button,
                        back_button]
 
-    @staticmethod
-    def grade_change(operation, grade, label, index, grade_level):
+    def grade_change(self, operation, grade, label, index, grade_level):
         if operation == '+':
             if grade < 5.0:
                 grade += 0.25
 
                 if grade_level == 7:
                     CalculateButtons.g7_grades[index] = grade
+                    self.gwa_calculation(7)
                 elif grade_level == 8:
                     CalculateButtons.g8_grades[index] = grade
                 elif grade_level == 9:
@@ -702,6 +704,7 @@ class CalculateButtons:
 
                 if grade_level == 7:
                     CalculateButtons.g7_grades[index] = grade
+                    self.gwa_calculation(7)
                 elif grade_level == 8:
                     CalculateButtons.g8_grades[index] = grade
                 elif grade_level == 9:
@@ -715,10 +718,26 @@ class CalculateButtons:
 
                 label.config(text=f"{grade}", font=("Helvetica", 10))
 
-    @staticmethod
-    def gwa_calculation(grade_level, grades):
+    def gwa_calculation(self, grade_level):
+        gwa_title_label = tk.Label(self.window, text="GWA", font=("Helvetica", 10))
+        gwa_title_label.place(x=10, y=50)
+
         if grade_level == 7:
-            pass
+            gwa_grade_7 = (CalculateButtons.g7_grades[0] * 1.7) + (CalculateButtons.g7_grades[1] * 1.7) + \
+                          (CalculateButtons.g7_grades[2] * 1.3) + (CalculateButtons.g7_grades[3] * 1.0) + \
+                          (CalculateButtons.g7_grades[4] * 1.0) + (CalculateButtons.g7_grades[5] * 1.0) + \
+                          (CalculateButtons.g7_grades[6] * 0.66) + (CalculateButtons.g7_grades[7] * 1.0) + \
+                          (CalculateButtons.g7_grades[8] * 1.0)
+
+            gwa_grade_7 = str(round((gwa_grade_7 / 10.36), 3))
+            print(gwa_grade_7)
+
+            if len(gwa_grade_7) < 5:
+                trailing_zero = '0' * (5 - len(gwa_grade_7))
+                gwa_grade_7 = gwa_grade_7 + trailing_zero
+
+            gwa_label = tk.Label(self.window, text=gwa_grade_7, font=("Helvetica", 10))
+            gwa_label.place(x=10, y=70)
 
 
 class Credits:
