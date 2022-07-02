@@ -79,6 +79,8 @@ class CalculateButtons:
             CalculateButtons.g11_grades = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
             CalculateButtons.g12_grades = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
 
+            SaveGWA(self.window, state=1)
+
             update_buttons = CalculateButtons(self.window, 1)
         else:
             print("Not found")
@@ -115,7 +117,8 @@ class CalculateButtons:
         gwa_labels = [gwa_title_label, gwa_label]
 
         # GWA Save button
-        SaveGWA(self.window, 'G7', CalculateButtons.g7_grades)
+        save_gwa = SaveGWA(self.window, 'G7', CalculateButtons.g7_grades)
+        save_gwa_button = save_gwa.save_button()
 
         # Grade 7 buttons
         g7_is_label = tk.Label(self.window, text="Integrated Science", font=("Helvetica", 10))
@@ -208,7 +211,7 @@ class CalculateButtons:
                       g7_valed_label, g7_valed_minus_button, g7_valed_grade_label, g7_valed_add_button,
                       g7_adtech_label, g7_adtech_minus_button, g7_adtech_grade_label, g7_adtech_add_button,
                       g7_cs_label, g7_cs_minus_button, g7_cs_grade_label, g7_cs_add_button,
-                      back_button]
+                      back_button, save_gwa_button]
 
     def g8_update(self):
         # Back button
@@ -218,6 +221,9 @@ class CalculateButtons:
         # GWA labels from GWA Calculation method; the purpose of this is for label removal.
         gwa_title_label, gwa_label = self.gwa_calculation('creation')
         gwa_labels = [gwa_title_label, gwa_label]
+
+        # GWA Save button
+        SaveGWA(self.window, 'G8', CalculateButtons.g8_grades)
 
         # Grade 8 buttons
         g8_is_label = tk.Label(self.window, text="Integrated Science", font=("Helvetica", 10))
@@ -331,6 +337,9 @@ class CalculateButtons:
         gwa_title_label, gwa_label = self.gwa_calculation('creation')
         gwa_labels = [gwa_title_label, gwa_label]
 
+        # GWA Save button
+        SaveGWA(self.window, 'G9', CalculateButtons.g9_grades)
+
         # Grade 9 buttons
         g9_bio_label = tk.Label(self.window, text="Biology", font=("Helvetica", 10))
         g9_bio_label.grid(row=0, column=1)
@@ -443,6 +452,9 @@ class CalculateButtons:
         gwa_title_label, gwa_label = self.gwa_calculation('creation')
         gwa_labels = [gwa_title_label, gwa_label]
 
+        # GWA Save button
+        SaveGWA(self.window, 'G10', CalculateButtons.g10_grades)
+
         # Grade 10 buttons
         g10_bio_label = tk.Label(self.window, text="Biology", font=("Helvetica", 10))
         g10_bio_label.grid(row=0, column=1)
@@ -554,6 +566,9 @@ class CalculateButtons:
         gwa_title_label, gwa_label = self.gwa_calculation('creation')
         gwa_labels = [gwa_title_label, gwa_label]
 
+        # GWA Save button
+        SaveGWA(self.window, 'G11', CalculateButtons.g11_grades)
+
         # Grade 11 buttons
         g11_core_label = tk.Label(self.window, text="Core", font=("Helvetica", 10))
         g11_core_label.grid(row=0, column=1)
@@ -635,6 +650,9 @@ class CalculateButtons:
         # GWA labels from GWA Calculation method; the purpose of this is for label removal.
         gwa_title_label, gwa_label = self.gwa_calculation('creation')
         gwa_labels = [gwa_title_label, gwa_label]
+
+        # GWA Save button
+        SaveGWA(self.window, 'G12', CalculateButtons.g12_grades)
 
         # Grade 12 buttons
         g12_core_label = tk.Label(self.window, text="Core", font=("Helvetica", 10))
@@ -860,13 +878,17 @@ class CalculateButtons:
 
 
 class SaveGWA:
-    def __init__(self, window, grade_level, grades):
-        # Save button
-        self.save_button = tk.Button(window, text="Save", font=("Helvetica", 15), command=lambda: self.save_to_csv())
-        self.save_button.place(x=10, y=200)
+    def __init__(self, window, grade_level=None, grades=None, state=None):
+        self.window = window
 
         self.grade_level = grade_level
         self.grades = grades
+
+    def save_button(self):
+        # Save button
+        save_button = tk.Button(self.window, text="Save", font=("Helvetica", 15), command=lambda: self.save_to_csv())
+        save_button.place(x=10, y=200)
+        return save_button
 
     def save_to_csv(self):
         with open('data.csv', 'a', newline='\n', encoding='utf-8') as csv_file:
