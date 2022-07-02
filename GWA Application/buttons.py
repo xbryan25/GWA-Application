@@ -1,5 +1,5 @@
 import tkinter as tk
-# import csv
+import csv
 
 
 class IntroButtons:
@@ -113,6 +113,9 @@ class CalculateButtons:
         # GWA labels from GWA Calculation method; the purpose of this is for label removal.
         gwa_title_label, gwa_label = self.gwa_calculation('creation')
         gwa_labels = [gwa_title_label, gwa_label]
+
+        # GWA Save button
+        SaveGWA(self.window, 'G7', CalculateButtons.g7_grades)
 
         # Grade 7 buttons
         g7_is_label = tk.Label(self.window, text="Integrated Science", font=("Helvetica", 10))
@@ -424,6 +427,7 @@ class CalculateButtons:
                       g9_p6_label, g9_p6_minus_button, g9_p6_grade_label, g9_p6_add_button,
                       g9_math_label, g9_math_minus_button, g9_math_grade_label, g9_math_add_button,
                       g9_eng_label, g9_eng_minus_button, g9_eng_grade_label, g9_eng_add_button,
+                      g9_fil_label, g9_fil_minus_button, g9_fil_grade_label, g9_fil_add_button,
                       g9_ss_label, g9_ss_minus_button, g9_ss_grade_label, g9_ss_add_button,
                       g9_pehm_label, g9_pehm_minus_button, g9_pehm_grade_label, g9_pehm_add_button,
                       g9_stat_label, g9_stat_minus_button, g9_stat_grade_label, g9_stat_add_button,
@@ -767,7 +771,7 @@ class CalculateButtons:
             return gwa_title_label, gwa_label
 
         elif grade_level == 7:
-            gwa_grade_7 = (CalculateButtons.g7_grades[0] * 1.7) + (CalculateButtons.g7_grades[1] * 1.7) + \
+            gwa_grade_7 = (CalculateButtons.g7_grades[0]) * 1.7 + (CalculateButtons.g7_grades[1] * 1.7) + \
                           (CalculateButtons.g7_grades[2] * 1.3) + (CalculateButtons.g7_grades[3] * 1.0) + \
                           (CalculateButtons.g7_grades[4] * 1.0) + (CalculateButtons.g7_grades[5] * 1.0) + \
                           (CalculateButtons.g7_grades[6] * 0.7) + (CalculateButtons.g7_grades[7] * 1.0) + \
@@ -853,6 +857,28 @@ class CalculateButtons:
                 gwa_grade_12 = gwa_grade_12 + trailing_zero
 
             gwa_label.config(text=gwa_grade_12)
+
+
+class SaveGWA:
+    def __init__(self, window, grade_level, grades):
+        # Save button
+        self.save_button = tk.Button(window, text="Save", font=("Helvetica", 15), command=lambda: self.save_to_csv())
+        self.save_button.place(x=10, y=200)
+
+        self.grade_level = grade_level
+        self.grades = grades
+
+    def save_to_csv(self):
+        with open('data.csv', 'a', newline='\n', encoding='utf-8') as csv_file:
+            csv_write = csv.writer(csv_file, delimiter=',')
+
+            self.grades.insert(0, self.grade_level)
+
+            csv_write.writerow(self.grades)
+
+            self.grades.pop(0)
+
+        print('saved')
 
 
 class AboutThisApp:
