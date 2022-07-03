@@ -53,7 +53,7 @@ class CalculateButtons:
         self.g12_button = tk.Button(window, text="Grade 12", font=("Helvetica", 20), command=lambda: self.grade_decision('12'))
         self.g12_button.grid(row=3, padx=(35, 100), column=1)
 
-    def back_decision(self, state, widgets=None, gwa_labels=None):
+    def back_decision(self, state, widgets=None, gwa_labels=None, save_gwa_widgets=None):
         if state == 0:
             self.back_button.destroy()
             self.g7_button.destroy()
@@ -72,14 +72,16 @@ class CalculateButtons:
                 for gwa_label in gwa_labels:
                     gwa_label.destroy()
 
+            if save_gwa_widgets is not None:
+                for save_gwa_widget in save_gwa_widgets:
+                    save_gwa_widget.destroy()
+
             CalculateButtons.g7_grades = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
             CalculateButtons.g8_grades = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
             CalculateButtons.g9_grades = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
             CalculateButtons.g10_grades = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
             CalculateButtons.g11_grades = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
             CalculateButtons.g12_grades = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
-
-            SaveGWA(self.window, state=1)
 
             update_buttons = CalculateButtons(self.window, 1)
         else:
@@ -889,31 +891,53 @@ class SaveGWA:
         self.grade_level = grade_level
         self.grades = grades
 
+        # Entry widget
+        self.entry = tk.Entry(self.window, font=("Helvetica", 8), justify='center')
+        self.entry.place(x=10, y=250)
+
     def save_button_and_entry(self):
         # Save button
-        save_button = tk.Button(self.window, text="Save", font=("Helvetica", 15), command=lambda: self.save_to_csv(entry))
+        save_button = tk.Button(self.window, text="Save", font=("Helvetica", 15), command=lambda: self.save_to_csv(self.entry))
         save_button.place(x=10, y=200)
 
-        # Entry
-        entry = tk.Entry(self.window, font=("Helvetica", 8), justify='center')
-        entry.place(x=10, y=250)
-
-        return save_button, entry
+        return save_button, self.entry
 
     def save_to_csv(self, entry):
-        with open('data.csv', 'a', newline='\n', encoding='utf-8') as csv_file:
-            csv_write = csv.writer(csv_file, delimiter=',')
+        with open('data.csv', 'r', newline='') as csv_file1:
+            csv_read = csv.reader(csv_file1)
+            for line in csv_read:
+                if entry.get() in line[0]:
+                    entry.delete(0, len(entry.get()))
+                    entry.insert(0, 'name taken')
+                    entry.config(state='disabled')
+                    entry.bind("<Button-1>", self.name_taken_click)
+                    return
 
-            self.grades.insert(0, self.grade_level)
-            self.grades.insert(0, entry.get())
+            with open('data.csv', 'a', newline='', encoding='utf-8') as csv_file2:
+                csv_write = csv.writer(csv_file2, delimiter=',')
 
-            csv_write.writerow(self.grades)
+                self.grades.insert(0, self.grade_level)
+                self.grades.insert(0, entry.get())
 
-            self.grades.pop(0)
-            self.grades.pop(0)
+                if entry.get() != 'name taken' and entry.get() != 'name saved':
+                    csv_write.writerow(self.grades)
 
-        print('saved')
+                self.grades.pop(0)
+                self.grades.pop(0)
 
+                entry.delete(0, len(entry.get()))
+                entry.insert(0, 'name saved')
+                entry.config(state='disabled')
+                entry.bind("<Button-1>", self.save_taken_click)
+                return
+
+    def name_taken_click(self, event):
+        self.entry.config(state='normal')
+        self.entry.delete(0, 10)
+
+    def save_taken_click(self, event):
+        self.entry.config(state='normal')
+        self.entry.delete(0, 10)
 
 # class ImportGWA:
 
