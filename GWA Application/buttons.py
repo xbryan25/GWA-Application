@@ -118,7 +118,7 @@ class CalculateButtons:
 
         # GWA Save button
         save_gwa = SaveGWA(self.window, 'G7', CalculateButtons.g7_grades)
-        save_gwa_button = save_gwa.save_button()
+        save_gwa_button, save_gwa_entry = save_gwa.save_button_and_entry()
 
         # Grade 7 buttons
         g7_is_label = tk.Label(self.window, text="Integrated Science", font=("Helvetica", 10))
@@ -211,7 +211,7 @@ class CalculateButtons:
                       g7_valed_label, g7_valed_minus_button, g7_valed_grade_label, g7_valed_add_button,
                       g7_adtech_label, g7_adtech_minus_button, g7_adtech_grade_label, g7_adtech_add_button,
                       g7_cs_label, g7_cs_minus_button, g7_cs_grade_label, g7_cs_add_button,
-                      back_button, save_gwa_button]
+                      back_button, save_gwa_button, save_gwa_entry]
 
     def g8_update(self):
         # Back button
@@ -224,7 +224,7 @@ class CalculateButtons:
 
         # GWA Save button
         save_gwa = SaveGWA(self.window, 'G8', CalculateButtons.g8_grades)
-        save_gwa_button = save_gwa.save_button()
+        save_gwa_button, save_gwa_entry = save_gwa.save_button_and_entry()
 
         # Grade 8 buttons
         g8_is_label = tk.Label(self.window, text="Integrated Science", font=("Helvetica", 10))
@@ -327,7 +327,7 @@ class CalculateButtons:
                       g8_adtech_label, g8_adtech_minus_button, g8_adtech_grade_label, g8_adtech_add_button,
                       g8_cs_label, g8_cs_minus_button, g8_cs_grade_label, g8_cs_add_button,
                       g8_es_label, g8_es_minus_button, g8_es_grade_label, g8_es_add_button,
-                      back_button, save_gwa_button]
+                      back_button, save_gwa_button, save_gwa_entry]
 
     def g9_update(self):
         # Back button
@@ -340,7 +340,7 @@ class CalculateButtons:
 
         # GWA Save button
         save_gwa = SaveGWA(self.window, 'G9', CalculateButtons.g9_grades)
-        save_gwa_button = save_gwa.save_button()
+        save_gwa_button, save_gwa_entry = save_gwa.save_button_and_entry()
 
         # Grade 9 buttons
         g9_bio_label = tk.Label(self.window, text="Biology", font=("Helvetica", 10))
@@ -443,7 +443,7 @@ class CalculateButtons:
                       g9_pehm_label, g9_pehm_minus_button, g9_pehm_grade_label, g9_pehm_add_button,
                       g9_stat_label, g9_stat_minus_button, g9_stat_grade_label, g9_stat_add_button,
                       g9_cs_label, g9_cs_minus_button, g9_cs_grade_label, g9_cs_add_button,
-                      back_button, save_gwa_button]
+                      back_button, save_gwa_button, save_gwa_entry]
 
     def g10_update(self):
         # Back button
@@ -456,7 +456,7 @@ class CalculateButtons:
 
         # GWA Save button
         save_gwa = SaveGWA(self.window, 'G10', CalculateButtons.g10_grades)
-        save_gwa_button = save_gwa.save_button()
+        save_gwa_button, save_gwa_entry = save_gwa.save_button_and_entry()
 
         # Grade 10 buttons
         g10_bio_label = tk.Label(self.window, text="Biology", font=("Helvetica", 10))
@@ -558,7 +558,7 @@ class CalculateButtons:
                        g10_pehm_label, g10_pehm_minus_button, g10_pehm_grade_label, g10_pehm_add_button,
                        g10_res_label, g10_res_minus_button, g10_res_grade_label, g10_res_add_button,
                        g10_cs_label, g10_cs_minus_button, g10_cs_grade_label, g10_cs_add_button,
-                       back_button, save_gwa_button]
+                       back_button, save_gwa_button, save_gwa_entry]
 
     def g11_update(self):
         # Back button
@@ -571,7 +571,7 @@ class CalculateButtons:
 
         # GWA Save button
         save_gwa = SaveGWA(self.window, 'G11', CalculateButtons.g11_grades)
-        save_gwa_button = save_gwa.save_button()
+        save_gwa_button, save_gwa_entry = save_gwa.save_button_and_entry()
 
         # Grade 11 buttons
         g11_core_label = tk.Label(self.window, text="Core", font=("Helvetica", 10))
@@ -644,7 +644,7 @@ class CalculateButtons:
                        g11_ss_label, g11_ss_minus_button, g11_ss_grade_label, g11_ss_add_button,
                        g11_res_label, g11_res_minus_button, g11_res_grade_label, g11_res_add_button,
                        g11_elec_label, g11_elec_minus_button, g11_elec_grade_label, g11_elec_add_button,
-                       back_button, save_gwa_button]
+                       back_button, save_gwa_button, save_gwa_entry]
 
     def g12_update(self):
         # Back button
@@ -657,7 +657,7 @@ class CalculateButtons:
 
         # GWA Save button
         save_gwa = SaveGWA(self.window, 'G12', CalculateButtons.g12_grades)
-        save_gwa_button = save_gwa.save_button()
+        save_gwa_button, save_gwa_entry = save_gwa.save_button_and_entry()
 
         # Grade 12 buttons
         g12_core_label = tk.Label(self.window, text="Core", font=("Helvetica", 10))
@@ -730,7 +730,7 @@ class CalculateButtons:
                        g12_ss_label, g12_ss_minus_button, g12_ss_grade_label, g12_ss_add_button,
                        g12_res_label, g12_res_minus_button, g12_res_grade_label, g12_res_add_button,
                        g12_elec_label, g12_elec_minus_button, g12_elec_grade_label, g12_elec_add_button,
-                       back_button, save_gwa_button]
+                       back_button, save_gwa_button, save_gwa_entry]
 
     def grade_change(self, operation, grade, label, index, grade_level, gwa_label):
         if operation == '+':
@@ -889,23 +889,33 @@ class SaveGWA:
         self.grade_level = grade_level
         self.grades = grades
 
-    def save_button(self):
+    def save_button_and_entry(self):
         # Save button
-        save_button = tk.Button(self.window, text="Save", font=("Helvetica", 15), command=lambda: self.save_to_csv())
+        save_button = tk.Button(self.window, text="Save", font=("Helvetica", 15), command=lambda: self.save_to_csv(entry))
         save_button.place(x=10, y=200)
-        return save_button
 
-    def save_to_csv(self):
+        # Entry
+        entry = tk.Entry(self.window, font=("Helvetica", 8), justify='center')
+        entry.place(x=10, y=250)
+
+        return save_button, entry
+
+    def save_to_csv(self, entry):
         with open('data.csv', 'a', newline='\n', encoding='utf-8') as csv_file:
             csv_write = csv.writer(csv_file, delimiter=',')
 
             self.grades.insert(0, self.grade_level)
+            self.grades.insert(0, entry.get())
 
             csv_write.writerow(self.grades)
 
             self.grades.pop(0)
+            self.grades.pop(0)
 
         print('saved')
+
+
+# class ImportGWA:
 
 
 class AboutThisApp:
