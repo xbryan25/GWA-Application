@@ -122,6 +122,10 @@ class CalculateButtons:
         save_gwa = SaveGWA(self.window, 'G7', CalculateButtons.g7_grades)
         save_gwa_button, save_gwa_entry = save_gwa.save_button_and_entry()
 
+        # GWA Import button
+        import_gwa = ImportGWA(self.window, 'G7', CalculateButtons.g7_grades)
+        import_gwa_button, import_gwa_entry = import_gwa.import_button_and_entry()
+
         # Grade 7 buttons
         g7_is_label = tk.Label(self.window, text="Integrated Science", font=("Helvetica", 10))
         g7_is_label.grid(row=0, column=1)
@@ -213,7 +217,7 @@ class CalculateButtons:
                       g7_valed_label, g7_valed_minus_button, g7_valed_grade_label, g7_valed_add_button,
                       g7_adtech_label, g7_adtech_minus_button, g7_adtech_grade_label, g7_adtech_add_button,
                       g7_cs_label, g7_cs_minus_button, g7_cs_grade_label, g7_cs_add_button,
-                      back_button, save_gwa_button, save_gwa_entry]
+                      back_button, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa]
 
     def g8_update(self):
         # Back button
@@ -788,10 +792,10 @@ class CalculateButtons:
 
         if grade_level == 'creation':
             gwa_title_label = tk.Label(self.window, text="GWA", font=("Helvetica", 10))
-            gwa_title_label.place(x=10, y=100)
+            gwa_title_label.place(x=10, y=75)
 
             gwa_label = tk.Label(self.window, text=f'{1.00}', font=("Helvetica", 10))
-            gwa_label.place(x=10, y=130)
+            gwa_label.place(x=10, y=100)
 
             return gwa_title_label, gwa_label
 
@@ -893,12 +897,12 @@ class SaveGWA:
 
         # Entry widget
         self.entry = tk.Entry(self.window, font=("Helvetica", 8), justify='center')
-        self.entry.place(x=10, y=250)
+        self.entry.place(x=10, y=200)
 
     def save_button_and_entry(self):
         # Save button
         save_button = tk.Button(self.window, text="Save", font=("Helvetica", 15), command=lambda: self.save_to_csv(self.entry))
-        save_button.place(x=10, y=200)
+        save_button.place(x=10, y=150)
 
         return save_button, self.entry
 
@@ -939,7 +943,66 @@ class SaveGWA:
         self.entry.config(state='normal')
         self.entry.delete(0, 10)
 
-# class ImportGWA:
+
+class ImportGWA:
+    def __init__(self, window, grade_level, grades):
+        self.window = window
+        self.grade_level = grade_level
+        self.grades = grades
+
+        # Entry widget
+        self.entry = tk.Entry(self.window, font=("Helvetica", 8), justify='center')
+        self.entry.place(x=10, y=275)
+
+    def import_button_and_entry(self):
+        import_button = tk.Button(self.window, text="Import", font=("Helvetica", 15), command=lambda: self.read_csv())
+        import_button.place(x=10, y=225)
+
+        return import_button, self.entry
+
+    def read_csv(self):
+        with open('data.csv', 'r', newline='') as csv_file1:
+            csv_read = csv.reader(csv_file1)
+            for line in csv_read:
+                self.in_csv(line)
+                if self.in_csv(line):
+                    self.entry.delete(0, len(self.entry.get()))
+                    self.entry.insert(0, 'success')
+                    self.entry.config(state='disabled')
+                    self.entry.bind("<Button-1>", self.name_taken_click)
+
+                    if self.grade_level == line[1]:
+                        print("same grade level")
+
+                        if self.grade_level == 'G7':
+                            self.grades[0] = float(line[2])
+                            self.grades[1] = float(line[3])
+                            self.grades[2] = float(line[4])
+                            self.grades[3] = float(line[5])
+                            self.grades[4] = float(line[6])
+                            self.grades[5] = float(line[7])
+                            self.grades[6] = float(line[8])
+                            self.grades[7] = float(line[9])
+                            self.grades[8] = float(line[10])
+
+                    else:
+                        print(f"The grade level is {line[1]}")
+
+                    return
+
+    def in_csv(self, line):
+        user_entry = self.entry.get()
+        if user_entry == line[0]:
+            return True
+        return False
+
+    def name_taken_click(self, event):
+        self.entry.config(state='normal')
+        self.entry.delete(0, 10)
+
+    def save_taken_click(self, event):
+        self.entry.config(state='normal')
+        self.entry.delete(0, 10)
 
 
 class AboutThisApp:
