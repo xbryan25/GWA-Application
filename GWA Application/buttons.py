@@ -1188,6 +1188,120 @@ class ImportGWA:
                         self.grades[9] = float(line[11])
                         self.subject_labels[9].config(text=f"{self.grades[9]}", font=("Helvetica", 10))
 
+                    elif self.grade_level == line[1] and self.grade_level == 'G9':
+                        self.gwa_label.config(text=line[12])
+
+                        self.grades[0] = float(line[2])
+                        self.subject_labels[0].config(text=f"{self.grades[0]}", font=("Helvetica", 10))
+
+                        self.grades[1] = float(line[3])
+                        self.subject_labels[1].config(text=f"{self.grades[1]}", font=("Helvetica", 10))
+
+                        self.grades[2] = float(line[4])
+                        self.subject_labels[2].config(text=f"{self.grades[2]}", font=("Helvetica", 10))
+
+                        self.grades[3] = float(line[5])
+                        self.subject_labels[3].config(text=f"{self.grades[3]}", font=("Helvetica", 10))
+
+                        self.grades[4] = float(line[6])
+                        self.subject_labels[4].config(text=f"{self.grades[4]}", font=("Helvetica", 10))
+
+                        self.grades[5] = float(line[7])
+                        self.subject_labels[5].config(text=f"{self.grades[5]}", font=("Helvetica", 10))
+
+                        self.grades[6] = float(line[8])
+                        self.subject_labels[6].config(text=f"{self.grades[6]}", font=("Helvetica", 10))
+
+                        self.grades[7] = float(line[9])
+                        self.subject_labels[7].config(text=f"{self.grades[7]}", font=("Helvetica", 10))
+
+                        self.grades[8] = float(line[10])
+                        self.subject_labels[8].config(text=f"{self.grades[8]}", font=("Helvetica", 10))
+
+                        self.grades[9] = float(line[11])
+                        self.subject_labels[9].config(text=f"{self.grades[9]}", font=("Helvetica", 10))
+
+                    elif self.grade_level == line[1] and self.grade_level == 'G10':
+                        self.gwa_label.config(text=line[12])
+
+                        self.grades[0] = float(line[2])
+                        self.subject_labels[0].config(text=f"{self.grades[0]}", font=("Helvetica", 10))
+
+                        self.grades[1] = float(line[3])
+                        self.subject_labels[1].config(text=f"{self.grades[1]}", font=("Helvetica", 10))
+
+                        self.grades[2] = float(line[4])
+                        self.subject_labels[2].config(text=f"{self.grades[2]}", font=("Helvetica", 10))
+
+                        self.grades[3] = float(line[5])
+                        self.subject_labels[3].config(text=f"{self.grades[3]}", font=("Helvetica", 10))
+
+                        self.grades[4] = float(line[6])
+                        self.subject_labels[4].config(text=f"{self.grades[4]}", font=("Helvetica", 10))
+
+                        self.grades[5] = float(line[7])
+                        self.subject_labels[5].config(text=f"{self.grades[5]}", font=("Helvetica", 10))
+
+                        self.grades[6] = float(line[8])
+                        self.subject_labels[6].config(text=f"{self.grades[6]}", font=("Helvetica", 10))
+
+                        self.grades[7] = float(line[9])
+                        self.subject_labels[7].config(text=f"{self.grades[7]}", font=("Helvetica", 10))
+
+                        self.grades[8] = float(line[10])
+                        self.subject_labels[8].config(text=f"{self.grades[8]}", font=("Helvetica", 10))
+
+                        self.grades[9] = float(line[11])
+                        self.subject_labels[9].config(text=f"{self.grades[9]}", font=("Helvetica", 10))
+
+                    elif self.grade_level == line[1] and self.grade_level == 'G11':
+                        self.gwa_label.config(text=line[9])
+
+                        self.grades[0] = float(line[2])
+                        self.subject_labels[0].config(text=f"{self.grades[0]}", font=("Helvetica", 10))
+
+                        self.grades[1] = float(line[3])
+                        self.subject_labels[1].config(text=f"{self.grades[1]}", font=("Helvetica", 10))
+
+                        self.grades[2] = float(line[4])
+                        self.subject_labels[2].config(text=f"{self.grades[2]}", font=("Helvetica", 10))
+
+                        self.grades[3] = float(line[5])
+                        self.subject_labels[3].config(text=f"{self.grades[3]}", font=("Helvetica", 10))
+
+                        self.grades[4] = float(line[6])
+                        self.subject_labels[4].config(text=f"{self.grades[4]}", font=("Helvetica", 10))
+
+                        self.grades[5] = float(line[7])
+                        self.subject_labels[5].config(text=f"{self.grades[5]}", font=("Helvetica", 10))
+
+                        self.grades[6] = float(line[8])
+                        self.subject_labels[6].config(text=f"{self.grades[6]}", font=("Helvetica", 10))
+
+                    elif self.grade_level == line[1] and self.grade_level == 'G12':
+                        self.gwa_label.config(text=line[9])
+
+                        self.grades[0] = float(line[2])
+                        self.subject_labels[0].config(text=f"{self.grades[0]}", font=("Helvetica", 10))
+
+                        self.grades[1] = float(line[3])
+                        self.subject_labels[1].config(text=f"{self.grades[1]}", font=("Helvetica", 10))
+
+                        self.grades[2] = float(line[4])
+                        self.subject_labels[2].config(text=f"{self.grades[2]}", font=("Helvetica", 10))
+
+                        self.grades[3] = float(line[5])
+                        self.subject_labels[3].config(text=f"{self.grades[3]}", font=("Helvetica", 10))
+
+                        self.grades[4] = float(line[6])
+                        self.subject_labels[4].config(text=f"{self.grades[4]}", font=("Helvetica", 10))
+
+                        self.grades[5] = float(line[7])
+                        self.subject_labels[5].config(text=f"{self.grades[5]}", font=("Helvetica", 10))
+
+                        self.grades[6] = float(line[8])
+                        self.subject_labels[6].config(text=f"{self.grades[6]}", font=("Helvetica", 10))
+
                     return
 
     def in_csv(self, line):
@@ -1204,7 +1318,8 @@ class ImportGWA:
         self.entry.config(state='normal')
         self.entry.delete(0, 10)
 
-    def label_for_import(self, labels):
+    @staticmethod
+    def label_for_import(labels):
         return labels
 
 
