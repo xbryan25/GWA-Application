@@ -1058,7 +1058,7 @@ class SaveGWA:
                 gwa_grade_10 = gwa_grade_10 + trailing_zero
             self.gwa = gwa_grade_10
 
-        elif self.grade_level == 11:
+        elif self.grade_level == 'G11':
             gwa_grade_11 = (self.grades[0] * 1.7) + (self.grades[1] * 1.0) + \
                            (self.grades[2] * 1.0) + (self.grades[3] * 1.0) + \
                            (self.grades[4] * 1.0) + (self.grades[5] * 2.0) + \
@@ -1071,7 +1071,7 @@ class SaveGWA:
                 gwa_grade_11 = gwa_grade_11 + trailing_zero
             self.gwa = gwa_grade_11
 
-        elif self.grade_level == 12:
+        elif self.grade_level == 'G12':
             gwa_grade_12 = (self.grades[0] * 1.7) + (self.grades[1] * 1.0) + \
                            (self.grades[2] * 1.0) + (self.grades[3] * 1.0) + \
                            (self.grades[4] * 1.0) + (self.grades[5] * 2.0) + \
@@ -1082,7 +1082,6 @@ class SaveGWA:
             if len(gwa_grade_12) < 5:
                 trailing_zero = '0' * (5 - len(gwa_grade_12))
                 gwa_grade_12 = gwa_grade_12 + trailing_zero
-
             self.gwa = gwa_grade_12
 
     def name_taken_click(self, event):
