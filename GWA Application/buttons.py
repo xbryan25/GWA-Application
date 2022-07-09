@@ -86,7 +86,7 @@ class CalculateButtons:
             CalculateButtons.g11_grades = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
             CalculateButtons.g12_grades = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
 
-            update_buttons = CalculateButtons(self.window, 1)
+            update_buttons = CalculateButtons(self.window)
         else:
             print("Not found")
 
@@ -225,7 +225,7 @@ class CalculateButtons:
                       g7_valed_label, g7_valed_minus_button, g7_valed_grade_label, g7_valed_add_button,
                       g7_adtech_label, g7_adtech_minus_button, g7_adtech_grade_label, g7_adtech_add_button,
                       g7_cs_label, g7_cs_minus_button, g7_cs_grade_label, g7_cs_add_button,
-                      back_button, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa]
+                      back_button, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
 
     def g8_update(self):
         # Back button
@@ -235,10 +235,6 @@ class CalculateButtons:
         # GWA labels from GWA Calculation method; the purpose of this is for label removal.
         gwa_title_label, gwa_label = self.gwa_calculation('creation')
         gwa_labels = [gwa_title_label, gwa_label]
-
-        # GWA Save button
-        save_gwa = SaveGWA(self.window, 'G8', CalculateButtons.g8_grades)
-        save_gwa_button, save_gwa_entry = save_gwa.save_button_and_entry()
 
         # Grade 8 buttons
         g8_is_label = tk.Label(self.window, text="Integrated Science", font=("Helvetica", 10))
@@ -331,6 +327,19 @@ class CalculateButtons:
         g8_es_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', CalculateButtons.g8_grades[9], g8_es_grade_label, 9, 8, gwa_label))
         g8_es_add_button.grid(row=9, column=5)
 
+        # GWA Save button
+        save_gwa = SaveGWA(self.window, 'G8', CalculateButtons.g8_grades)
+        save_gwa_button, save_gwa_entry = save_gwa.save_button_and_entry()
+
+        # Labels for import
+        labels_for_import = [g8_is_grade_label, g8_math_grade_label, g8_eng_grade_label, g8_fil_grade_label,
+                             g8_ss_grade_label, g8_pehm_grade_label, g8_valed_grade_label, g8_adtech_grade_label,
+                             g8_cs_grade_label, g8_es_label]
+
+        # GWA Import button
+        import_gwa = ImportGWA(self.window, 'G8', CalculateButtons.g8_grades, labels_for_import, gwa_label)
+        import_gwa_button, import_gwa_entry = import_gwa.import_button_and_entry()
+
         g8_buttons = [g8_is_label, g8_is_minus_button, g8_is_grade_label, g8_is_add_button,
                       g8_math_label, g8_math_minus_button, g8_math_grade_label, g8_math_add_button,
                       g8_eng_label, g8_eng_minus_button, g8_eng_grade_label, g8_eng_add_button,
@@ -341,7 +350,7 @@ class CalculateButtons:
                       g8_adtech_label, g8_adtech_minus_button, g8_adtech_grade_label, g8_adtech_add_button,
                       g8_cs_label, g8_cs_minus_button, g8_cs_grade_label, g8_cs_add_button,
                       g8_es_label, g8_es_minus_button, g8_es_grade_label, g8_es_add_button,
-                      back_button, save_gwa_button, save_gwa_entry]
+                      back_button, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
 
     def g9_update(self):
         # Back button
@@ -351,10 +360,6 @@ class CalculateButtons:
         # GWA labels from GWA Calculation method; the purpose of this is for label removal.
         gwa_title_label, gwa_label = self.gwa_calculation('creation')
         gwa_labels = [gwa_title_label, gwa_label]
-
-        # GWA Save button
-        save_gwa = SaveGWA(self.window, 'G9', CalculateButtons.g9_grades)
-        save_gwa_button, save_gwa_entry = save_gwa.save_button_and_entry()
 
         # Grade 9 buttons
         g9_bio_label = tk.Label(self.window, text="Biology", font=("Helvetica", 10))
@@ -447,6 +452,19 @@ class CalculateButtons:
         g9_cs_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', CalculateButtons.g9_grades[9], g9_cs_grade_label, 9, 9, gwa_label))
         g9_cs_add_button.grid(row=9, column=5)
 
+        # GWA Save button
+        save_gwa = SaveGWA(self.window, 'G9', CalculateButtons.g9_grades)
+        save_gwa_button, save_gwa_entry = save_gwa.save_button_and_entry()
+
+        # Labels for import
+        labels_for_import = [g9_bio_grade_label, g9_chem_grade_label, g9_p6_grade_label, g9_math_grade_label,
+                             g9_eng_grade_label, g9_fil_grade_label, g9_ss_grade_label, g9_pehm_grade_label,
+                             g9_stat_grade_label, g9_cs_grade_label]
+
+        # GWA Import button
+        import_gwa = ImportGWA(self.window, 'G9', CalculateButtons.g9_grades, labels_for_import, gwa_label)
+        import_gwa_button, import_gwa_entry = import_gwa.import_button_and_entry()
+
         g9_buttons = [g9_bio_label, g9_bio_minus_button, g9_bio_grade_label, g9_bio_add_button,
                       g9_chem_label, g9_chem_minus_button, g9_chem_grade_label, g9_chem_add_button,
                       g9_p6_label, g9_p6_minus_button, g9_p6_grade_label, g9_p6_add_button,
@@ -457,7 +475,7 @@ class CalculateButtons:
                       g9_pehm_label, g9_pehm_minus_button, g9_pehm_grade_label, g9_pehm_add_button,
                       g9_stat_label, g9_stat_minus_button, g9_stat_grade_label, g9_stat_add_button,
                       g9_cs_label, g9_cs_minus_button, g9_cs_grade_label, g9_cs_add_button,
-                      back_button, save_gwa_button, save_gwa_entry]
+                      back_button, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
 
     def g10_update(self):
         # Back button
@@ -467,10 +485,6 @@ class CalculateButtons:
         # GWA labels from GWA Calculation method; the purpose of this is for label removal.
         gwa_title_label, gwa_label = self.gwa_calculation('creation')
         gwa_labels = [gwa_title_label, gwa_label]
-
-        # GWA Save button
-        save_gwa = SaveGWA(self.window, 'G10', CalculateButtons.g10_grades)
-        save_gwa_button, save_gwa_entry = save_gwa.save_button_and_entry()
 
         # Grade 10 buttons
         g10_bio_label = tk.Label(self.window, text="Biology", font=("Helvetica", 10))
@@ -563,6 +577,19 @@ class CalculateButtons:
         g10_cs_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', CalculateButtons.g10_grades[9], g10_cs_grade_label, 9, 10, gwa_label))
         g10_cs_add_button.grid(row=9, column=5)
 
+        # GWA Save button
+        save_gwa = SaveGWA(self.window, 'G10', CalculateButtons.g10_grades)
+        save_gwa_button, save_gwa_entry = save_gwa.save_button_and_entry()
+
+        # Labels for import
+        labels_for_import = [g10_bio_grade_label, g10_chem_grade_label, g10_p6_grade_label, g10_math_grade_label,
+                             g10_eng_grade_label, g10_fil_grade_label, g10_ss_grade_label, g10_pehm_grade_label,
+                             g10_res_grade_label, g10_cs_grade_label]
+
+        # GWA Import button
+        import_gwa = ImportGWA(self.window, 'G10', CalculateButtons.g10_grades, labels_for_import, gwa_label)
+        import_gwa_button, import_gwa_entry = import_gwa.import_button_and_entry()
+
         g10_buttons = [g10_bio_label, g10_bio_minus_button, g10_bio_grade_label, g10_bio_add_button,
                        g10_chem_label, g10_chem_minus_button, g10_chem_grade_label, g10_chem_add_button,
                        g10_p6_label, g10_p6_minus_button, g10_p6_grade_label, g10_p6_add_button,
@@ -572,7 +599,7 @@ class CalculateButtons:
                        g10_pehm_label, g10_pehm_minus_button, g10_pehm_grade_label, g10_pehm_add_button,
                        g10_res_label, g10_res_minus_button, g10_res_grade_label, g10_res_add_button,
                        g10_cs_label, g10_cs_minus_button, g10_cs_grade_label, g10_cs_add_button,
-                       back_button, save_gwa_button, save_gwa_entry]
+                       back_button, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
 
     def g11_update(self):
         # Back button
@@ -582,10 +609,6 @@ class CalculateButtons:
         # GWA labels from GWA Calculation method; the purpose of this is for label removal.
         gwa_title_label, gwa_label = self.gwa_calculation('creation')
         gwa_labels = [gwa_title_label, gwa_label]
-
-        # GWA Save button
-        save_gwa = SaveGWA(self.window, 'G11', CalculateButtons.g11_grades)
-        save_gwa_button, save_gwa_entry = save_gwa.save_button_and_entry()
 
         # Grade 11 buttons
         g11_core_label = tk.Label(self.window, text="Core", font=("Helvetica", 10))
@@ -651,6 +674,18 @@ class CalculateButtons:
         g11_elec_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', CalculateButtons.g11_grades[6], g11_elec_grade_label, 6, 11, gwa_label))
         g11_elec_add_button.grid(row=7, column=2)
 
+        # GWA Save button
+        save_gwa = SaveGWA(self.window, 'G11', CalculateButtons.g11_grades)
+        save_gwa_button, save_gwa_entry = save_gwa.save_button_and_entry()
+
+        # Labels for import
+        labels_for_import = [g11_core_grade_label, g11_math_grade_label, g11_eng_grade_label, g11_fil_grade_label,
+                             g11_ss_grade_label, g11_res_grade_label, g11_elec_grade_label]
+
+        # GWA Import button
+        import_gwa = ImportGWA(self.window, 'G11', CalculateButtons.g11_grades, labels_for_import, gwa_label)
+        import_gwa_button, import_gwa_entry = import_gwa.import_button_and_entry()
+
         g11_buttons = [g11_core_label, g11_core_minus_button, g11_core_grade_label, g11_core_add_button,
                        g11_math_label, g11_math_minus_button, g11_math_grade_label, g11_math_add_button,
                        g11_eng_label, g11_eng_minus_button, g11_eng_grade_label, g11_eng_add_button,
@@ -658,7 +693,7 @@ class CalculateButtons:
                        g11_ss_label, g11_ss_minus_button, g11_ss_grade_label, g11_ss_add_button,
                        g11_res_label, g11_res_minus_button, g11_res_grade_label, g11_res_add_button,
                        g11_elec_label, g11_elec_minus_button, g11_elec_grade_label, g11_elec_add_button,
-                       back_button, save_gwa_button, save_gwa_entry]
+                       back_button, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
 
     def g12_update(self):
         # Back button
@@ -668,10 +703,6 @@ class CalculateButtons:
         # GWA labels from GWA Calculation method; the purpose of this is for label removal.
         gwa_title_label, gwa_label = self.gwa_calculation('creation')
         gwa_labels = [gwa_title_label, gwa_label]
-
-        # GWA Save button
-        save_gwa = SaveGWA(self.window, 'G12', CalculateButtons.g12_grades)
-        save_gwa_button, save_gwa_entry = save_gwa.save_button_and_entry()
 
         # Grade 12 buttons
         g12_core_label = tk.Label(self.window, text="Core", font=("Helvetica", 10))
@@ -737,6 +768,18 @@ class CalculateButtons:
         g12_elec_add_button = tk.Button(self.window, text="+", font=("Helvetica", 10), command=lambda: self.grade_change('+', CalculateButtons.g12_grades[6], g12_elec_grade_label, 6, 12, gwa_label))
         g12_elec_add_button.grid(row=7, column=2)
 
+        # GWA Save button
+        save_gwa = SaveGWA(self.window, 'G12', CalculateButtons.g12_grades)
+        save_gwa_button, save_gwa_entry = save_gwa.save_button_and_entry()
+
+        # Labels for import
+        labels_for_import = [g12_core_grade_label, g12_math_grade_label, g12_eng_grade_label, g12_fil_grade_label,
+                             g12_ss_grade_label, g12_res_grade_label, g12_elec_grade_label]
+
+        # GWA Import button
+        import_gwa = ImportGWA(self.window, 'G12', CalculateButtons.g12_grades, labels_for_import, gwa_label)
+        import_gwa_button, import_gwa_entry = import_gwa.import_button_and_entry()
+
         g12_buttons = [g12_core_label, g12_core_minus_button, g12_core_grade_label, g12_core_add_button,
                        g12_math_label, g12_math_minus_button, g12_math_grade_label, g12_math_add_button,
                        g12_eng_label, g12_eng_minus_button, g12_eng_grade_label, g12_eng_add_button,
@@ -744,7 +787,7 @@ class CalculateButtons:
                        g12_ss_label, g12_ss_minus_button, g12_ss_grade_label, g12_ss_add_button,
                        g12_res_label, g12_res_minus_button, g12_res_grade_label, g12_res_add_button,
                        g12_elec_label, g12_elec_minus_button, g12_elec_grade_label, g12_elec_add_button,
-                       back_button, save_gwa_button, save_gwa_entry]
+                       back_button, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
 
     def grade_change(self, operation, grade, label, index, grade_level, gwa_label):
         if operation == '+':
@@ -756,19 +799,19 @@ class CalculateButtons:
                     self.gwa_calculation(7, CalculateButtons.g7_grades, gwa_label)
                 elif grade_level == 8:
                     CalculateButtons.g8_grades[index] = grade
-                    self.gwa_calculation(8, gwa_label)
+                    self.gwa_calculation(8, CalculateButtons.g8_grades, gwa_label)
                 elif grade_level == 9:
                     CalculateButtons.g9_grades[index] = grade
-                    self.gwa_calculation(9, gwa_label)
+                    self.gwa_calculation(9, CalculateButtons.g9_grades, gwa_label)
                 elif grade_level == 10:
                     CalculateButtons.g10_grades[index] = grade
-                    self.gwa_calculation(10, gwa_label)
+                    self.gwa_calculation(10, CalculateButtons.g10_grades, gwa_label)
                 elif grade_level == 11:
                     CalculateButtons.g11_grades[index] = grade
-                    self.gwa_calculation(11, gwa_label)
+                    self.gwa_calculation(11, CalculateButtons.g11_grades, gwa_label)
                 elif grade_level == 12:
                     CalculateButtons.g12_grades[index] = grade
-                    self.gwa_calculation(12, gwa_label)
+                    self.gwa_calculation(12, CalculateButtons.g12_grades, gwa_label)
 
                 label.config(text=f"{grade}", font=("Helvetica", 10))
         elif operation == '-':
@@ -780,38 +823,38 @@ class CalculateButtons:
                     self.gwa_calculation(7, CalculateButtons.g7_grades, gwa_label)
                 elif grade_level == 8:
                     CalculateButtons.g8_grades[index] = grade
-                    self.gwa_calculation(8, gwa_label)
+                    self.gwa_calculation(8, CalculateButtons.g8_grades, gwa_label)
                 elif grade_level == 9:
                     CalculateButtons.g9_grades[index] = grade
-                    self.gwa_calculation(9, gwa_label)
+                    self.gwa_calculation(9, CalculateButtons.g9_grades, gwa_label)
                 elif grade_level == 10:
                     CalculateButtons.g10_grades[index] = grade
-                    self.gwa_calculation(10, gwa_label)
+                    self.gwa_calculation(10, CalculateButtons.g10_grades, gwa_label)
                 elif grade_level == 11:
                     CalculateButtons.g11_grades[index] = grade
-                    self.gwa_calculation(11, gwa_label)
+                    self.gwa_calculation(11, CalculateButtons.g11_grades, gwa_label)
                 elif grade_level == 12:
                     CalculateButtons.g12_grades[index] = grade
-                    self.gwa_calculation(12, gwa_label)
+                    self.gwa_calculation(12, CalculateButtons.g12_grades, gwa_label)
 
                 label.config(text=f"{grade}", font=("Helvetica", 10))
 
-    def gwa_calculation(self, grade_level, g7_grades=None, gwa_label=None):
+    def gwa_calculation(self, grade_level, grades=None, gwa_label=None):
         if grade_level == 'creation':
             gwa_title_label = tk.Label(self.window, text="GWA", font=("Helvetica", 10))
             gwa_title_label.place(x=10, y=75)
 
-            gwa_label = tk.Label(self.window, text=f'{1.00}', font=("Helvetica", 10))
+            gwa_label = tk.Label(self.window, text='1.000', font=("Helvetica", 10))
             gwa_label.place(x=10, y=100)
 
             return gwa_title_label, gwa_label
 
         elif grade_level == 7:
-            gwa_grade_7 = (g7_grades[0] * 1.7) + (g7_grades[1] * 1.7) + \
-                          (g7_grades[2] * 1.3) + (g7_grades[3] * 1.0) + \
-                          (g7_grades[4] * 1.0) + (g7_grades[5] * 1.0) + \
-                          (g7_grades[6] * 0.7) + (g7_grades[7] * 1.0) + \
-                          (g7_grades[8] * 1.0)
+            gwa_grade_7 = (grades[0] * 1.7) + (grades[1] * 1.7) + \
+                          (grades[2] * 1.3) + (grades[3] * 1.0) + \
+                          (grades[4] * 1.0) + (grades[5] * 1.0) + \
+                          (grades[6] * 0.7) + (grades[7] * 1.0) + \
+                          (grades[8] * 1.0)
 
             gwa_grade_7 = str(round((gwa_grade_7 / 10.4), 3))
 
@@ -821,14 +864,14 @@ class CalculateButtons:
 
             if gwa_label is not None:
                 gwa_label.config(text=gwa_grade_7)
-            return gwa_grade_7
+            # return gwa_grade_7
 
         elif grade_level == 8:
-            gwa_grade_8 = (CalculateButtons.g8_grades[0] * 2.0) + (CalculateButtons.g8_grades[1] * 1.7) + \
-                          (CalculateButtons.g8_grades[2] * 1.3) + (CalculateButtons.g8_grades[3] * 1.0) + \
-                          (CalculateButtons.g8_grades[4] * 1.0) + (CalculateButtons.g8_grades[5] * 1.0) + \
-                          (CalculateButtons.g8_grades[6] * 0.7) + (CalculateButtons.g8_grades[7] * 1.0) + \
-                          (CalculateButtons.g8_grades[8] * 1.0) + (CalculateButtons.g8_grades[9] * 0.7)
+            gwa_grade_8 = (grades[0] * 2.0) + (grades[1] * 1.7) + \
+                          (grades[2] * 1.3) + (grades[3] * 1.0) + \
+                          (grades[4] * 1.0) + (grades[5] * 1.0) + \
+                          (grades[6] * 0.7) + (grades[7] * 1.0) + \
+                          (grades[8] * 1.0) + (grades[9] * 0.7)
 
             gwa_grade_8 = str(round((gwa_grade_8 / 11.4), 3))
 
@@ -836,14 +879,15 @@ class CalculateButtons:
                 trailing_zero = '0' * (5 - len(gwa_grade_8))
                 gwa_grade_8 = gwa_grade_8 + trailing_zero
 
-            gwa_label.config(text=gwa_grade_8)
+            if gwa_label is not None:
+                gwa_label.config(text=gwa_grade_8)
 
         elif grade_level == 9:
-            gwa_grade_9 = (CalculateButtons.g9_grades[0] * 1.0) + (CalculateButtons.g9_grades[1] * 1.0) + \
-                          (CalculateButtons.g9_grades[2] * 1.0) + (CalculateButtons.g9_grades[3] * 1.0) + \
-                          (CalculateButtons.g9_grades[4] * 1.0) + (CalculateButtons.g9_grades[5] * 1.0) + \
-                          (CalculateButtons.g9_grades[6] * 1.0) + (CalculateButtons.g9_grades[7] * 1.0) + \
-                          (CalculateButtons.g9_grades[8] * 1.0) + (CalculateButtons.g9_grades[9] * 1.0)
+            gwa_grade_9 = (grades[0] * 1.0) + (grades[1] * 1.0) + \
+                          (grades[2] * 1.0) + (grades[3] * 1.0) + \
+                          (grades[4] * 1.0) + (grades[5] * 1.0) + \
+                          (grades[6] * 1.0) + (grades[7] * 1.0) + \
+                          (grades[8] * 1.0) + (grades[9] * 1.0)
 
             gwa_grade_9 = str(round((gwa_grade_9 / 10.0), 3))
 
@@ -851,14 +895,15 @@ class CalculateButtons:
                 trailing_zero = '0' * (5 - len(gwa_grade_9))
                 gwa_grade_9 = gwa_grade_9 + trailing_zero
 
-            gwa_label.config(text=gwa_grade_9)
+            if gwa_label is not None:
+                gwa_label.config(text=gwa_grade_9)
 
         elif grade_level == 10:
-            gwa_grade_10 = (CalculateButtons.g10_grades[0] * 1.0) + (CalculateButtons.g10_grades[1] * 1.0) + \
-                          (CalculateButtons.g10_grades[2] * 1.0) + (CalculateButtons.g10_grades[3] * 1.3) + \
-                          (CalculateButtons.g10_grades[4] * 1.0) + (CalculateButtons.g10_grades[5] * 1.0) + \
-                          (CalculateButtons.g10_grades[6] * 1.0) + (CalculateButtons.g10_grades[7] * 1.0) + \
-                          (CalculateButtons.g10_grades[8] * 1.0) + (CalculateButtons.g10_grades[9] * 1.0)
+            gwa_grade_10 = (grades[0] * 1.0) + (grades[1] * 1.0) + \
+                          (grades[2] * 1.0) + (grades[3] * 1.3) + \
+                          (grades[4] * 1.0) + (grades[5] * 1.0) + \
+                          (grades[6] * 1.0) + (grades[7] * 1.0) + \
+                          (grades[8] * 1.0) + (grades[9] * 1.0)
 
             gwa_grade_10 = str(round((gwa_grade_10 / 10.3), 3))
 
@@ -866,13 +911,14 @@ class CalculateButtons:
                 trailing_zero = '0' * (5 - len(gwa_grade_10))
                 gwa_grade_10 = gwa_grade_10 + trailing_zero
 
-            gwa_label.config(text=gwa_grade_10)
+            if gwa_label is not None:
+                gwa_label.config(text=gwa_grade_10)
 
         elif grade_level == 11:
-            gwa_grade_11 = (CalculateButtons.g11_grades[0] * 1.7) + (CalculateButtons.g11_grades[1] * 1.0) + \
-                          (CalculateButtons.g11_grades[2] * 1.0) + (CalculateButtons.g11_grades[3] * 1.0) + \
-                          (CalculateButtons.g11_grades[4] * 1.0) + (CalculateButtons.g11_grades[5] * 2.0) + \
-                          (CalculateButtons.g11_grades[6] * 1.7)
+            gwa_grade_11 = (grades[0] * 1.7) + (grades[1] * 1.0) + \
+                           (grades[2] * 1.0) + (grades[3] * 1.0) + \
+                           (grades[4] * 1.0) + (grades[5] * 2.0) + \
+                           (grades[6] * 1.7)
 
             gwa_grade_11 = str(round((gwa_grade_11 / 9.4), 3))
 
@@ -880,13 +926,14 @@ class CalculateButtons:
                 trailing_zero = '0' * (5 - len(gwa_grade_11))
                 gwa_grade_11 = gwa_grade_11 + trailing_zero
 
-            gwa_label.config(text=gwa_grade_11)
+            if gwa_label is not None:
+                gwa_label.config(text=gwa_grade_11)
 
         elif grade_level == 12:
-            gwa_grade_12 = (CalculateButtons.g12_grades[0] * 1.7) + (CalculateButtons.g12_grades[1] * 1.0) + \
-                           (CalculateButtons.g12_grades[2] * 1.0) + (CalculateButtons.g12_grades[3] * 1.0) + \
-                           (CalculateButtons.g12_grades[4] * 1.0) + (CalculateButtons.g12_grades[5] * 2.0) + \
-                           (CalculateButtons.g12_grades[6] * 1.7)
+            gwa_grade_12 = (grades[0] * 1.7) + (grades[1] * 1.0) + \
+                           (grades[2] * 1.0) + (grades[3] * 1.0) + \
+                           (grades[4] * 1.0) + (grades[5] * 2.0) + \
+                           (grades[6] * 1.7)
 
             gwa_grade_12 = str(round((gwa_grade_12 / 9.4), 3))
 
@@ -894,7 +941,8 @@ class CalculateButtons:
                 trailing_zero = '0' * (5 - len(gwa_grade_12))
                 gwa_grade_12 = gwa_grade_12 + trailing_zero
 
-            gwa_label.config(text=gwa_grade_12)
+            if gwa_label is not None:
+                gwa_label.config(text=gwa_grade_12)
 
 
 class SaveGWA:
