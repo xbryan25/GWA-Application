@@ -968,9 +968,14 @@ class SaveGWA:
         with open('data.csv', 'r', newline='') as csv_file1:
             csv_read = csv.reader(csv_file1)
             for line in csv_read:
-                if entry.get() in line[0]:
+                if entry.get() == '':
+                    entry.insert(0, 'Input name.')
+                    entry.config(state='disabled')
+                    entry.bind("<Button-1>", self.input_name_click)
+                    return
+                elif entry.get() in line[0]:
                     entry.delete(0, len(entry.get()))
-                    entry.insert(0, 'name taken')
+                    entry.insert(0, 'Name taken.')
                     entry.config(state='disabled')
                     entry.bind("<Button-1>", self.name_taken_click)
                     return
@@ -983,7 +988,7 @@ class SaveGWA:
                 self.grades.insert(0, self.grade_level)
                 self.grades.insert(0, entry.get())
 
-                if entry.get() != 'name taken' and entry.get() != 'name saved':
+                if entry.get() != 'Name taken.' and entry.get() != 'Name saved!' and entry.get() != 'Input name.':
                     csv_write.writerow(self.grades)
 
                 self.grades.pop()
@@ -991,7 +996,7 @@ class SaveGWA:
                 self.grades.pop(0)
 
                 entry.delete(0, len(entry.get()))
-                entry.insert(0, 'name saved')
+                entry.insert(0, 'Name saved!')
                 entry.config(state='disabled')
                 entry.bind("<Button-1>", self.save_taken_click)
                 return
@@ -1011,86 +1016,86 @@ class SaveGWA:
                 gwa_grade_7 = gwa_grade_7 + trailing_zero
             self.gwa = gwa_grade_7
 
-        # elif grade_level == 8:
-        #     gwa_grade_8 = (CalculateButtons.g8_grades[0] * 2.0) + (CalculateButtons.g8_grades[1] * 1.7) + \
-        #                   (CalculateButtons.g8_grades[2] * 1.3) + (CalculateButtons.g8_grades[3] * 1.0) + \
-        #                   (CalculateButtons.g8_grades[4] * 1.0) + (CalculateButtons.g8_grades[5] * 1.0) + \
-        #                   (CalculateButtons.g8_grades[6] * 0.7) + (CalculateButtons.g8_grades[7] * 1.0) + \
-        #                   (CalculateButtons.g8_grades[8] * 1.0) + (CalculateButtons.g8_grades[9] * 0.7)
-        #
-        #     gwa_grade_8 = str(round((gwa_grade_8 / 11.4), 3))
-        #
-        #     if len(gwa_grade_8) < 5:
-        #         trailing_zero = '0' * (5 - len(gwa_grade_8))
-        #         gwa_grade_8 = gwa_grade_8 + trailing_zero
-        #
-        #     gwa_label.config(text=gwa_grade_8)
-        #
-        # elif grade_level == 9:
-        #     gwa_grade_9 = (CalculateButtons.g9_grades[0] * 1.0) + (CalculateButtons.g9_grades[1] * 1.0) + \
-        #                   (CalculateButtons.g9_grades[2] * 1.0) + (CalculateButtons.g9_grades[3] * 1.0) + \
-        #                   (CalculateButtons.g9_grades[4] * 1.0) + (CalculateButtons.g9_grades[5] * 1.0) + \
-        #                   (CalculateButtons.g9_grades[6] * 1.0) + (CalculateButtons.g9_grades[7] * 1.0) + \
-        #                   (CalculateButtons.g9_grades[8] * 1.0) + (CalculateButtons.g9_grades[9] * 1.0)
-        #
-        #     gwa_grade_9 = str(round((gwa_grade_9 / 10.0), 3))
-        #
-        #     if len(gwa_grade_9) < 5:
-        #         trailing_zero = '0' * (5 - len(gwa_grade_9))
-        #         gwa_grade_9 = gwa_grade_9 + trailing_zero
-        #
-        #     gwa_label.config(text=gwa_grade_9)
-        #
-        # elif grade_level == 10:
-        #     gwa_grade_10 = (CalculateButtons.g10_grades[0] * 1.0) + (CalculateButtons.g10_grades[1] * 1.0) + \
-        #                    (CalculateButtons.g10_grades[2] * 1.0) + (CalculateButtons.g10_grades[3] * 1.3) + \
-        #                    (CalculateButtons.g10_grades[4] * 1.0) + (CalculateButtons.g10_grades[5] * 1.0) + \
-        #                    (CalculateButtons.g10_grades[6] * 1.0) + (CalculateButtons.g10_grades[7] * 1.0) + \
-        #                    (CalculateButtons.g10_grades[8] * 1.0) + (CalculateButtons.g10_grades[9] * 1.0)
-        #
-        #     gwa_grade_10 = str(round((gwa_grade_10 / 10.3), 3))
-        #
-        #     if len(gwa_grade_10) < 5:
-        #         trailing_zero = '0' * (5 - len(gwa_grade_10))
-        #         gwa_grade_10 = gwa_grade_10 + trailing_zero
-        #
-        #     gwa_label.config(text=gwa_grade_10)
-        #
-        # elif grade_level == 11:
-        #     gwa_grade_11 = (CalculateButtons.g11_grades[0] * 1.7) + (CalculateButtons.g11_grades[1] * 1.0) + \
-        #                    (CalculateButtons.g11_grades[2] * 1.0) + (CalculateButtons.g11_grades[3] * 1.0) + \
-        #                    (CalculateButtons.g11_grades[4] * 1.0) + (CalculateButtons.g11_grades[5] * 2.0) + \
-        #                    (CalculateButtons.g11_grades[6] * 1.7)
-        #
-        #     gwa_grade_11 = str(round((gwa_grade_11 / 9.4), 3))
-        #
-        #     if len(gwa_grade_11) < 5:
-        #         trailing_zero = '0' * (5 - len(gwa_grade_11))
-        #         gwa_grade_11 = gwa_grade_11 + trailing_zero
-        #
-        #     gwa_label.config(text=gwa_grade_11)
-        #
-        # elif grade_level == 12:
-        #     gwa_grade_12 = (CalculateButtons.g12_grades[0] * 1.7) + (CalculateButtons.g12_grades[1] * 1.0) + \
-        #                    (CalculateButtons.g12_grades[2] * 1.0) + (CalculateButtons.g12_grades[3] * 1.0) + \
-        #                    (CalculateButtons.g12_grades[4] * 1.0) + (CalculateButtons.g12_grades[5] * 2.0) + \
-        #                    (CalculateButtons.g12_grades[6] * 1.7)
-        #
-        #     gwa_grade_12 = str(round((gwa_grade_12 / 9.4), 3))
-        #
-        #     if len(gwa_grade_12) < 5:
-        #         trailing_zero = '0' * (5 - len(gwa_grade_12))
-        #         gwa_grade_12 = gwa_grade_12 + trailing_zero
-        #
-        #     gwa_label.config(text=gwa_grade_12)
+        elif self.grade_level == 'G8':
+            gwa_grade_8 = (self.grades[0] * 2.0) + (self.grades[1] * 1.7) + \
+                          (self.grades[2] * 1.3) + (self.grades[3] * 1.0) + \
+                          (self.grades[4] * 1.0) + (self.grades[5] * 1.0) + \
+                          (self.grades[6] * 0.7) + (self.grades[7] * 1.0) + \
+                          (self.grades[8] * 1.0) + (self.grades[9] * 0.7)
+
+            gwa_grade_8 = str(round((gwa_grade_8 / 11.4), 3))
+
+            if len(gwa_grade_8) < 5:
+                trailing_zero = '0' * (5 - len(gwa_grade_8))
+                gwa_grade_8 = gwa_grade_8 + trailing_zero
+            self.gwa = gwa_grade_8
+
+        elif self.grade_level == 'G9':
+            gwa_grade_9 = (self.grades[0] * 1.0) + (self.grades[1] * 1.0) + \
+                          (self.grades[2] * 1.0) + (self.grades[3] * 1.0) + \
+                          (self.grades[4] * 1.0) + (self.grades[5] * 1.0) + \
+                          (self.grades[6] * 1.0) + (self.grades[7] * 1.0) + \
+                          (self.grades[8] * 1.0) + (self.grades[9] * 1.0)
+
+            gwa_grade_9 = str(round((gwa_grade_9 / 10.0), 3))
+
+            if len(gwa_grade_9) < 5:
+                trailing_zero = '0' * (5 - len(gwa_grade_9))
+                gwa_grade_9 = gwa_grade_9 + trailing_zero
+            self.gwa = gwa_grade_9
+
+        elif self.grade_level == 'G10':
+            gwa_grade_10 = (self.grades[0] * 1.0) + (self.grades[1] * 1.0) + \
+                           (self.grades[2] * 1.0) + (self.grades[3] * 1.3) + \
+                           (self.grades[4] * 1.0) + (self.grades[5] * 1.0) + \
+                           (self.grades[6] * 1.0) + (self.grades[7] * 1.0) + \
+                           (self.grades[8] * 1.0) + (self.grades[9] * 1.0)
+
+            gwa_grade_10 = str(round((gwa_grade_10 / 10.3), 3))
+
+            if len(gwa_grade_10) < 5:
+                trailing_zero = '0' * (5 - len(gwa_grade_10))
+                gwa_grade_10 = gwa_grade_10 + trailing_zero
+            self.gwa = gwa_grade_10
+
+        elif self.grade_level == 11:
+            gwa_grade_11 = (self.grades[0] * 1.7) + (self.grades[1] * 1.0) + \
+                           (self.grades[2] * 1.0) + (self.grades[3] * 1.0) + \
+                           (self.grades[4] * 1.0) + (self.grades[5] * 2.0) + \
+                           (self.grades[6] * 1.7)
+
+            gwa_grade_11 = str(round((gwa_grade_11 / 9.4), 3))
+
+            if len(gwa_grade_11) < 5:
+                trailing_zero = '0' * (5 - len(gwa_grade_11))
+                gwa_grade_11 = gwa_grade_11 + trailing_zero
+            self.gwa = gwa_grade_11
+
+        elif self.grade_level == 12:
+            gwa_grade_12 = (self.grades[0] * 1.7) + (self.grades[1] * 1.0) + \
+                           (self.grades[2] * 1.0) + (self.grades[3] * 1.0) + \
+                           (self.grades[4] * 1.0) + (self.grades[5] * 2.0) + \
+                           (self.grades[6] * 1.7)
+
+            gwa_grade_12 = str(round((gwa_grade_12 / 9.4), 3))
+
+            if len(gwa_grade_12) < 5:
+                trailing_zero = '0' * (5 - len(gwa_grade_12))
+                gwa_grade_12 = gwa_grade_12 + trailing_zero
+
+            self.gwa = gwa_grade_12
 
     def name_taken_click(self, event):
         self.entry.config(state='normal')
-        self.entry.delete(0, 10)
+        self.entry.delete(0, 11)
+
+    def input_name_click(self, event):
+        self.entry.config(state='normal')
+        self.entry.delete(0, 11)
 
     def save_taken_click(self, event):
         self.entry.config(state='normal')
-        self.entry.delete(0, 10)
+        self.entry.delete(0, 11)
 
 
 class ImportGWA:
