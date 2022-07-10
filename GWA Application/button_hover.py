@@ -4,8 +4,8 @@ class ButtonHover:
         self.button = button
 
     def on_enter(self, entry):
-        self.button['background'] = 'red'
-        self.button['foreground'] = 'blue'
+        self.button['background'] = '#CFCFCF'
+        self.button['foreground'] = 'black'
 
     def on_leave(self, entry):
         self.button['background'] = 'white'
