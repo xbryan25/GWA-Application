@@ -1,5 +1,6 @@
 import tkinter as tk
 import csv
+from button_hover import ButtonHover
 
 
 class IntroButtons:
@@ -9,6 +10,11 @@ class IntroButtons:
         self.calculate_button = tk.Button(window, text="Calculate", font=("Helvetica", 25),
                                           command=lambda: self.intro_decision('calculate'))
         self.calculate_button.grid(row=0, padx=(220, 0), pady=(120, 60))
+
+        calculate_button_hover = ButtonHover(self.calculate_button)
+        self.calculate_button.bind('<Enter>', calculate_button_hover.on_enter)
+        self.calculate_button.bind('<Leave>', calculate_button_hover.on_leave)
+
         self.credits_button = tk.Button(window, text="About this app", font=("Helvetica", 15),
                                         command=lambda: self.intro_decision('about_this_app'))
         self.credits_button.grid(row=1, padx=(60, 100), column=1)
@@ -42,13 +48,13 @@ class CalculateButtons:
 
         # Grade levels
         self.window = window
-        self.g7_button = tk.Button(window, text="Grade 7 ", font=("Helvetica", 20),
-                                   command=lambda: self.grade_decision('7'))
+        self.g7_button = tk.Button(window, text="Grade 7  ", font=("Helvetica", 20),
+                                   command=lambda: self.grade_decision('7'), bg='white')
         self.g7_button.grid(row=1, padx=(90, 100), pady=20)
-        self.g8_button = tk.Button(window, text="Grade 8 ", font=("Helvetica", 20),
+        self.g8_button = tk.Button(window, text="Grade 8  ", font=("Helvetica", 20),
                                    command=lambda: self.grade_decision('8'))
         self.g8_button.grid(row=1, padx=(30, 100), column=1)
-        self.g9_button = tk.Button(window, text="Grade 9 ", font=("Helvetica", 20),
+        self.g9_button = tk.Button(window, text="Grade 9  ", font=("Helvetica", 20),
                                    command=lambda: self.grade_decision('9'))
         self.g9_button.grid(row=2, padx=(90, 100), pady=20)
         self.g10_button = tk.Button(window, text="Grade 10", font=("Helvetica", 20),
@@ -1644,7 +1650,7 @@ class AboutThisApp:
         created_by = tk.Label(window, text="xbryan25", font=("Helvetica", 15), bg='black', fg='white')
         created_by.place(x=425, y=225)
 
-        version = tk.Label(window, text="v(u) (07-09-22)", font=("Helvetica", 15), bg='black', fg='white')
+        version = tk.Label(window, text="v(u) (07-10-22)", font=("Helvetica", 15), bg='black', fg='white')
         version.place(x=425, y=250)
 
         # GitHub picture
@@ -1663,3 +1669,5 @@ class AboutThisApp:
         self.back_button.destroy()
 
         IntroButtons(self.window)
+
+
