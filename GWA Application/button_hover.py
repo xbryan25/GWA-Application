@@ -6,7 +6,7 @@ class ButtonHover:
 
     def on_enter(self, entry):
         if self.button_type == 'calculate' or self.button_type == 'credits':
-            self.button['background'] = '#CFCFCF'
+            self.button['background'] = '#9F9E9D'
             self.button['foreground'] = 'black'
 
         elif self.button_type == 'back_button':
