@@ -49,7 +49,9 @@ class CalculateButtons:
 
     def __init__(self, window):
         # Back button
-        self.back_button = tk.Button(window, text="←", font=("Helvetica", 15), command=lambda: self.back_decision(0))
+        self.back_button = tk.Button(window, text="←", font=("Helvetica", 15),
+                                     command=lambda: self.back_decision(0),
+                                     activebackground='#DB5F44')
         self.back_button.place(x=10, y=20)
 
         back_button_hover = ButtonHover(self.back_button, 'back_button')
@@ -142,7 +144,8 @@ class CalculateButtons:
 
         # Back button
         back_button_g7 = tk.Button(self.window, text="←", font=("Helvetica", 15),
-                                command=lambda: self.back_decision(1, g7_buttons, gwa_labels))
+                                   command=lambda: self.back_decision(1, g7_buttons, gwa_labels),
+                                   activebackground='#DB5F44')
         back_button_g7.place(x=10, y=20)
 
         back_button_g7_hover = ButtonHover(back_button_g7, 'back_button')
@@ -309,7 +312,8 @@ class CalculateButtons:
 
         # Back button
         back_button_g8 = tk.Button(self.window, text="←", font=("Helvetica", 15),
-                                   command=lambda: self.back_decision(1, g8_buttons, gwa_labels))
+                                   command=lambda: self.back_decision(1, g8_buttons, gwa_labels),
+                                   activebackground='#DB5F44')
         back_button_g8.place(x=10, y=20)
 
         back_button_g8_hover = ButtonHover(back_button_g8, 'back_button')
@@ -491,7 +495,8 @@ class CalculateButtons:
 
         # Back button
         back_button_g9 = tk.Button(self.window, text="←", font=("Helvetica", 15),
-                                   command=lambda: self.back_decision(1, g9_buttons, gwa_labels))
+                                   command=lambda: self.back_decision(1, g9_buttons, gwa_labels),
+                                   activebackground='#DB5F44')
         back_button_g9.place(x=10, y=20)
 
         back_button_g9_hover = ButtonHover(back_button_g9, 'back_button')
@@ -673,7 +678,8 @@ class CalculateButtons:
 
         # Back button
         back_button_g10 = tk.Button(self.window, text="←", font=("Helvetica", 15),
-                                    command=lambda: self.back_decision(1, g10_buttons, gwa_labels))
+                                    command=lambda: self.back_decision(1, g10_buttons, gwa_labels),
+                                    activebackground='#DB5F44')
         back_button_g10.place(x=10, y=20)
 
         back_button_g10_hover = ButtonHover(back_button_g10, 'back_button')
@@ -855,7 +861,8 @@ class CalculateButtons:
 
         # Back button
         back_button_g11 = tk.Button(self.window, text="←", font=("Helvetica", 15),
-                                    command=lambda: self.back_decision(1, g11_buttons, gwa_labels))
+                                    command=lambda: self.back_decision(1, g11_buttons, gwa_labels),
+                                    activebackground='#DB5F44')
         back_button_g11.place(x=10, y=20)
 
         back_button_g11_hover = ButtonHover(back_button_g11, 'back_button')
@@ -991,7 +998,8 @@ class CalculateButtons:
 
         # Back button
         back_button_g12 = tk.Button(self.window, text="←", font=("Helvetica", 15),
-                                    command=lambda: self.back_decision(1, g12_buttons, gwa_labels))
+                                    command=lambda: self.back_decision(1, g12_buttons, gwa_labels),
+                                    activebackground='#DB5F44')
         back_button_g12.place(x=10, y=20)
 
         back_button_g12_hover = ButtonHover(back_button_g12, 'back_button')
@@ -1661,8 +1669,13 @@ class AboutThisApp:
     def __init__(self, window):
         # Back button
         self.back_button = tk.Button(window, text="←", font=("Helvetica", 15),
-                                     command=lambda: self.back_decision(widget_list))
+                                     command=lambda: self.back_decision(widget_list),
+                                     activebackground='#DB5F44')
         self.back_button.place(x=10, y=20)
+
+        back_button_hover = ButtonHover(self.back_button, 'back_button')
+        self.back_button.bind('<Enter>', back_button_hover.on_enter)
+        self.back_button.bind('<Leave>', back_button_hover.on_leave)
 
         # Text
         self.window = window
