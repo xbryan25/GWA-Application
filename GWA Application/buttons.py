@@ -8,16 +8,22 @@ class IntroButtons:
         # Intro buttons
         self.window = window
         self.calculate_button = tk.Button(window, text="Calculate", font=("Helvetica", 25),
-                                          command=lambda: self.intro_decision('calculate'))
+                                          command=lambda: self.intro_decision('calculate'),
+                                          activebackground='#CFCFCF')
         self.calculate_button.grid(row=0, padx=(220, 0), pady=(120, 60))
 
-        calculate_button_hover = ButtonHover(self.calculate_button)
+        calculate_button_hover = ButtonHover(self.calculate_button, 'calculate')
         self.calculate_button.bind('<Enter>', calculate_button_hover.on_enter)
         self.calculate_button.bind('<Leave>', calculate_button_hover.on_leave)
 
         self.credits_button = tk.Button(window, text="About this app", font=("Helvetica", 15),
-                                        command=lambda: self.intro_decision('about_this_app'))
+                                        command=lambda: self.intro_decision('about_this_app'),
+                                        activebackground='#CFCFCF')
         self.credits_button.grid(row=1, padx=(60, 100), column=1)
+
+        credits_button_hover = ButtonHover(self.credits_button, 'credits')
+        self.credits_button.bind('<Enter>', credits_button_hover.on_enter)
+        self.credits_button.bind('<Leave>', credits_button_hover.on_leave)
 
     def intro_decision(self, decision):
         if decision == 'calculate':
@@ -45,6 +51,10 @@ class CalculateButtons:
         # Back button
         self.back_button = tk.Button(window, text="←", font=("Helvetica", 15), command=lambda: self.back_decision(0))
         self.back_button.place(x=10, y=20)
+
+        back_button_hover = ButtonHover(self.back_button, 'back_button')
+        self.back_button.bind('<Enter>', back_button_hover.on_enter)
+        self.back_button.bind('<Leave>', back_button_hover.on_leave)
 
         # Grade levels
         self.window = window
@@ -131,9 +141,13 @@ class CalculateButtons:
         self.window.config(bg='#FFF0C6')
 
         # Back button
-        back_button = tk.Button(self.window, text="←", font=("Helvetica", 15),
+        back_button_g7 = tk.Button(self.window, text="←", font=("Helvetica", 15),
                                 command=lambda: self.back_decision(1, g7_buttons, gwa_labels))
-        back_button.place(x=10, y=20)
+        back_button_g7.place(x=10, y=20)
+
+        back_button_g7_hover = ButtonHover(back_button_g7, 'back_button')
+        back_button_g7.bind('<Enter>', back_button_g7_hover.on_enter)
+        back_button_g7.bind('<Leave>', back_button_g7_hover.on_leave)
 
         # GWA labels from GWA Calculation method; the purpose of this is for label removal.
         gwa_title_label, gwa_label = self.gwa_calculation('creation')
@@ -288,15 +302,19 @@ class CalculateButtons:
                       g7_valed_label, g7_valed_minus_button, g7_valed_grade_label, g7_valed_add_button,
                       g7_adtech_label, g7_adtech_minus_button, g7_adtech_grade_label, g7_adtech_add_button,
                       g7_cs_label, g7_cs_minus_button, g7_cs_grade_label, g7_cs_add_button,
-                      back_button, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
+                      back_button_g7, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
 
     def g8_update(self):
         self.window.config(bg='#D2EF9C')
 
         # Back button
-        back_button = tk.Button(self.window, text="←", font=("Helvetica", 15),
-                                command=lambda: self.back_decision(1, g8_buttons, gwa_labels))
-        back_button.place(x=10, y=20)
+        back_button_g8 = tk.Button(self.window, text="←", font=("Helvetica", 15),
+                                   command=lambda: self.back_decision(1, g8_buttons, gwa_labels))
+        back_button_g8.place(x=10, y=20)
+
+        back_button_g8_hover = ButtonHover(back_button_g8, 'back_button')
+        back_button_g8.bind('<Enter>', back_button_g8_hover.on_enter)
+        back_button_g8.bind('<Leave>', back_button_g8_hover.on_leave)
 
         # GWA labels from GWA Calculation method; the purpose of this is for label removal.
         gwa_title_label, gwa_label = self.gwa_calculation('creation')
@@ -466,15 +484,19 @@ class CalculateButtons:
                       g8_adtech_label, g8_adtech_minus_button, g8_adtech_grade_label, g8_adtech_add_button,
                       g8_cs_label, g8_cs_minus_button, g8_cs_grade_label, g8_cs_add_button,
                       g8_es_label, g8_es_minus_button, g8_es_grade_label, g8_es_add_button,
-                      back_button, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
+                      back_button_g8, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
 
     def g9_update(self):
         self.window.config(bg='#8EF4B5')
 
         # Back button
-        back_button = tk.Button(self.window, text="←", font=("Helvetica", 15),
-                                command=lambda: self.back_decision(1, g9_buttons, gwa_labels))
-        back_button.place(x=10, y=20)
+        back_button_g9 = tk.Button(self.window, text="←", font=("Helvetica", 15),
+                                   command=lambda: self.back_decision(1, g9_buttons, gwa_labels))
+        back_button_g9.place(x=10, y=20)
+
+        back_button_g9_hover = ButtonHover(back_button_g9, 'back_button')
+        back_button_g9.bind('<Enter>', back_button_g9_hover.on_enter)
+        back_button_g9.bind('<Leave>', back_button_g9_hover.on_leave)
 
         # GWA labels from GWA Calculation method; the purpose of this is for label removal.
         gwa_title_label, gwa_label = self.gwa_calculation('creation')
@@ -644,15 +666,19 @@ class CalculateButtons:
                       g9_pehm_label, g9_pehm_minus_button, g9_pehm_grade_label, g9_pehm_add_button,
                       g9_stat_label, g9_stat_minus_button, g9_stat_grade_label, g9_stat_add_button,
                       g9_cs_label, g9_cs_minus_button, g9_cs_grade_label, g9_cs_add_button,
-                      back_button, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
+                      back_button_g9, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
 
     def g10_update(self):
         self.window.config(bg='#89D6FF')
 
         # Back button
-        back_button = tk.Button(self.window, text="←", font=("Helvetica", 15),
-                                command=lambda: self.back_decision(1, g10_buttons, gwa_labels))
-        back_button.place(x=10, y=20)
+        back_button_g10 = tk.Button(self.window, text="←", font=("Helvetica", 15),
+                                    command=lambda: self.back_decision(1, g10_buttons, gwa_labels))
+        back_button_g10.place(x=10, y=20)
+
+        back_button_g10_hover = ButtonHover(back_button_g10, 'back_button')
+        back_button_g10.bind('<Enter>', back_button_g10_hover.on_enter)
+        back_button_g10.bind('<Leave>', back_button_g10_hover.on_leave)
 
         # GWA labels from GWA Calculation method; the purpose of this is for label removal.
         gwa_title_label, gwa_label = self.gwa_calculation('creation')
@@ -822,15 +848,19 @@ class CalculateButtons:
                        g10_pehm_label, g10_pehm_minus_button, g10_pehm_grade_label, g10_pehm_add_button,
                        g10_res_label, g10_res_minus_button, g10_res_grade_label, g10_res_add_button,
                        g10_cs_label, g10_cs_minus_button, g10_cs_grade_label, g10_cs_add_button,
-                       back_button, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
+                       back_button_g10, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
 
     def g11_update(self):
         self.window.config(bg='#AF9DFF')
 
         # Back button
-        back_button = tk.Button(self.window, text="←", font=("Helvetica", 15),
-                                command=lambda: self.back_decision(1, g11_buttons, gwa_labels))
-        back_button.place(x=10, y=20)
+        back_button_g11 = tk.Button(self.window, text="←", font=("Helvetica", 15),
+                                    command=lambda: self.back_decision(1, g11_buttons, gwa_labels))
+        back_button_g11.place(x=10, y=20)
+
+        back_button_g11_hover = ButtonHover(back_button_g11, 'back_button')
+        back_button_g11.bind('<Enter>', back_button_g11_hover.on_enter)
+        back_button_g11.bind('<Leave>', back_button_g11_hover.on_leave)
 
         # GWA labels from GWA Calculation method; the purpose of this is for label removal.
         gwa_title_label, gwa_label = self.gwa_calculation('creation')
@@ -954,15 +984,19 @@ class CalculateButtons:
                        g11_ss_label, g11_ss_minus_button, g11_ss_grade_label, g11_ss_add_button,
                        g11_res_label, g11_res_minus_button, g11_res_grade_label, g11_res_add_button,
                        g11_elec_label, g11_elec_minus_button, g11_elec_grade_label, g11_elec_add_button,
-                       back_button, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
+                       back_button_g11, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
 
     def g12_update(self):
         self.window.config(bg='#FAA9FD')
 
         # Back button
-        back_button = tk.Button(self.window, text="←", font=("Helvetica", 15),
-                                command=lambda: self.back_decision(1, g12_buttons, gwa_labels))
-        back_button.place(x=10, y=20)
+        back_button_g12 = tk.Button(self.window, text="←", font=("Helvetica", 15),
+                                    command=lambda: self.back_decision(1, g12_buttons, gwa_labels))
+        back_button_g12.place(x=10, y=20)
+
+        back_button_g12_hover = ButtonHover(back_button_g12, 'back_button')
+        back_button_g12.bind('<Enter>', back_button_g12_hover.on_enter)
+        back_button_g12.bind('<Leave>', back_button_g12_hover.on_leave)
 
         # GWA labels from GWA Calculation method; the purpose of this is for label removal.
         gwa_title_label, gwa_label = self.gwa_calculation('creation')
@@ -1086,7 +1120,7 @@ class CalculateButtons:
                        g12_ss_label, g12_ss_minus_button, g12_ss_grade_label, g12_ss_add_button,
                        g12_res_label, g12_res_minus_button, g12_res_grade_label, g12_res_add_button,
                        g12_elec_label, g12_elec_minus_button, g12_elec_grade_label, g12_elec_add_button,
-                       back_button, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
+                       back_button_g12, save_gwa_button, save_gwa_entry, import_gwa_button, import_gwa_entry]
 
     def grade_change(self, operation, grade, label, index, grade_level, gwa_label):
         if operation == '+':
