@@ -9,7 +9,7 @@ class IntroButtons:
         self.window = window
         self.calculate_button = tk.Button(window, text="Calculate", font=("Helvetica", 25),
                                           command=lambda: self.intro_decision('calculate'),
-                                          activebackground='#CFCFCF')
+                                          activebackground='#9F9E9D')
         self.calculate_button.grid(row=0, padx=(220, 0), pady=(120, 60))
 
         calculate_button_hover = ButtonHover(self.calculate_button, 'calculate')
@@ -18,7 +18,7 @@ class IntroButtons:
 
         self.credits_button = tk.Button(window, text="About this app", font=("Helvetica", 15),
                                         command=lambda: self.intro_decision('about_this_app'),
-                                        activebackground='#CFCFCF')
+                                        activebackground='#9F9E9D')
         self.credits_button.grid(row=1, padx=(60, 100), column=1)
 
         credits_button_hover = ButtonHover(self.credits_button, 'credits')
@@ -48,6 +48,11 @@ class CalculateButtons:
     g12_grades = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
 
     def __init__(self, window):
+        self.window = window
+
+        # Window configuration
+        self.window.config(bg='#A6A6A6')
+
         # Back button
         self.back_button = tk.Button(window, text="←", font=("Helvetica", 15),
                                      command=lambda: self.back_decision(0),
@@ -59,25 +64,53 @@ class CalculateButtons:
         self.back_button.bind('<Leave>', back_button_hover.on_leave)
 
         # Grade levels
-        self.window = window
         self.g7_button = tk.Button(window, text="Grade 7  ", font=("Helvetica", 20),
                                    command=lambda: self.grade_decision('7'), bg='white')
         self.g7_button.grid(row=1, padx=(90, 100), pady=20)
+
+        g7_button_hover = ButtonHover(self.g7_button, 'grade_level_button')
+        self.g7_button.bind('<Enter>', g7_button_hover.on_enter)
+        self.g7_button.bind('<Leave>', g7_button_hover.on_leave)
+
         self.g8_button = tk.Button(window, text="Grade 8  ", font=("Helvetica", 20),
                                    command=lambda: self.grade_decision('8'))
         self.g8_button.grid(row=1, padx=(30, 100), column=1)
+
+        g8_button_hover = ButtonHover(self.g8_button, 'grade_level_button')
+        self.g8_button.bind('<Enter>', g8_button_hover.on_enter)
+        self.g8_button.bind('<Leave>', g8_button_hover.on_leave)
+
         self.g9_button = tk.Button(window, text="Grade 9  ", font=("Helvetica", 20),
                                    command=lambda: self.grade_decision('9'))
         self.g9_button.grid(row=2, padx=(90, 100), pady=20)
+
+        g9_button_hover = ButtonHover(self.g9_button, 'grade_level_button')
+        self.g9_button.bind('<Enter>', g9_button_hover.on_enter)
+        self.g9_button.bind('<Leave>', g9_button_hover.on_leave)
+
         self.g10_button = tk.Button(window, text="Grade 10", font=("Helvetica", 20),
                                     command=lambda: self.grade_decision('10'))
         self.g10_button.grid(row=2, padx=(35, 100), column=1)
+
+        g10_button_hover = ButtonHover(self.g10_button, 'grade_level_button')
+        self.g10_button.bind('<Enter>', g10_button_hover.on_enter)
+        self.g10_button.bind('<Leave>', g10_button_hover.on_leave)
+
         self.g11_button = tk.Button(window, text="Grade 11", font=("Helvetica", 20),
                                     command=lambda: self.grade_decision('11'))
         self.g11_button.grid(row=3, padx=(90, 100), pady=20)
+
+        g11_button_hover = ButtonHover(self.g11_button, 'grade_level_button')
+        self.g11_button.bind('<Enter>', g11_button_hover.on_enter)
+        self.g11_button.bind('<Leave>', g11_button_hover.on_leave)
+
         self.g12_button = tk.Button(window, text="Grade 12", font=("Helvetica", 20),
                                     command=lambda: self.grade_decision('12'))
         self.g12_button.grid(row=3, padx=(35, 100), column=1)
+
+        g12_button_hover = ButtonHover(self.g12_button, 'grade_level_button')
+        self.g12_button.bind('<Enter>', g12_button_hover.on_enter)
+        self.g12_button.bind('<Leave>', g12_button_hover.on_leave)
 
         # GWA placeholder for display
         self.display_gwa = 1.0
