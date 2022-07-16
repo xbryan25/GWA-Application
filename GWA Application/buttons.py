@@ -65,7 +65,7 @@ class CalculateButtons:
 
         # Grade levels
         self.g7_button = tk.Button(window, text="Grade 7  ", font=("Helvetica", 20),
-                                   command=lambda: self.grade_decision('7'), bg='white',
+                                   command=lambda: self.grade_decision('7'),
                                    activebackground='#9F9E9D')
         self.g7_button.grid(row=1, padx=(90, 100), pady=20)
 
@@ -218,7 +218,7 @@ class CalculateButtons:
         g7_is_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                      command=lambda: self.grade_change('+', CalculateButtons.g7_grades[0],
                                                                        g7_is_grade_label, 0, 7, gwa_label),
-                                     activebackground='#DB5F44')
+                                     activebackground='#67C735')
         g7_is_add_button.grid(row=1, column=2, padx=(0, 25))
 
         is_add_button_hover = ButtonHover(g7_is_add_button, 'subject_button', 'add')
@@ -231,7 +231,8 @@ class CalculateButtons:
         g7_math_label.grid(row=0, column=4, pady=(15, 0))
         g7_math_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g7_grades[1],
-                                                                           g7_math_grade_label, 1, 7, gwa_label))
+                                                                           g7_math_grade_label, 1, 7, gwa_label),
+                                         activebackground='#DB5F44')
         g7_math_minus_button.grid(row=1, column=3)
 
         math_minus_button_hover = ButtonHover(g7_math_minus_button, 'subject_button', 'minus')
@@ -242,7 +243,8 @@ class CalculateButtons:
         g7_math_grade_label.grid(row=1, column=4, pady=5)
         g7_math_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g7_grades[1],
-                                                                         g7_math_grade_label, 1, 7, gwa_label))
+                                                                         g7_math_grade_label, 1, 7, gwa_label),
+                                       activebackground='#67C735')
         g7_math_add_button.grid(row=1, column=5)
 
         math_add_button_hover = ButtonHover(g7_math_add_button, 'subject_button', 'add')
@@ -251,11 +253,12 @@ class CalculateButtons:
 
         # English
         g7_eng_label = tk.Label(self.window, text="         English        ", font=("Helvetica", 10), borderwidth=2,
-                               relief='groove')
+                                relief='groove')
         g7_eng_label.grid(row=2, column=1)
         g7_eng_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('-', CalculateButtons.g7_grades[2],
-                                                                          g7_eng_grade_label, 2, 7, gwa_label))
+                                                                          g7_eng_grade_label, 2, 7, gwa_label),
+                                        activebackground='#DB5F44')
         g7_eng_minus_button.grid(row=3, column=0, padx=(200, 0))
 
         eng_minus_button_hover = ButtonHover(g7_eng_minus_button, 'subject_button', 'minus')
@@ -266,7 +269,8 @@ class CalculateButtons:
         g7_eng_grade_label.grid(row=3, column=1, pady=5)
         g7_eng_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                       command=lambda: self.grade_change('+', CalculateButtons.g7_grades[2],
-                                                                        g7_eng_grade_label, 2, 7, gwa_label))
+                                                                        g7_eng_grade_label, 2, 7, gwa_label),
+                                     activebackground='#67C735')
         g7_eng_add_button.grid(row=3, column=2, padx=(0, 25))
 
         eng_add_button_hover = ButtonHover(g7_eng_add_button, 'subject_button', 'add')
@@ -280,7 +284,8 @@ class CalculateButtons:
 
         g7_fil_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('-', CalculateButtons.g7_grades[3],
-                                                                          g7_fil_grade_label, 3, 7, gwa_label))
+                                                                          g7_fil_grade_label, 3, 7, gwa_label),
+                                        activebackground='#DB5F44')
         g7_fil_minus_button.grid(row=3, column=3)
 
         fil_minus_button_hover = ButtonHover(g7_fil_minus_button, 'subject_button', 'minus')
@@ -289,9 +294,10 @@ class CalculateButtons:
 
         g7_fil_grade_label = tk.Label(self.window, text=f"{CalculateButtons.g7_grades[3]}", font=("Helvetica", 10))
         g7_fil_grade_label.grid(row=3, column=4, pady=5)
-        g7_fil_add_button = tk.Button(self.window, text=" +", font=("Helvetica", 10),
+        g7_fil_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                       command=lambda: self.grade_change('+', CalculateButtons.g7_grades[3],
-                                                                        g7_fil_grade_label, 3, 7, gwa_label))
+                                                                        g7_fil_grade_label, 3, 7, gwa_label),
+                                      activebackground='#67C735')
         g7_fil_add_button.grid(row=3, column=5)
 
         fil_add_button_hover = ButtonHover(g7_fil_add_button, 'subject_button', 'add')
@@ -305,7 +311,8 @@ class CalculateButtons:
 
         g7_ss_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('-', CalculateButtons.g7_grades[4],
-                                                                         g7_ss_grade_label, 4, 7, gwa_label))
+                                                                         g7_ss_grade_label, 4, 7, gwa_label),
+                                       activebackground='#DB5F44')
         g7_ss_minus_button.grid(row=5, column=0, padx=(200, 0))
 
         ss_minus_button_hover = ButtonHover(g7_ss_minus_button, 'subject_button', 'minus')
@@ -316,7 +323,8 @@ class CalculateButtons:
         g7_ss_grade_label.grid(row=5, column=1, pady=5)
         g7_ss_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                      command=lambda: self.grade_change('+', CalculateButtons.g7_grades[4],
-                                                                       g7_ss_grade_label, 4, 7, gwa_label))
+                                                                       g7_ss_grade_label, 4, 7, gwa_label),
+                                     activebackground='#67C735')
         g7_ss_add_button.grid(row=5, column=2, padx=(0, 25))
 
         ss_add_button_hover = ButtonHover(g7_ss_add_button, 'subject_button', 'add')
@@ -330,7 +338,8 @@ class CalculateButtons:
 
         g7_pehm_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g7_grades[5],
-                                                                           g7_pehm_grade_label, 5, 7, gwa_label))
+                                                                           g7_pehm_grade_label, 5, 7, gwa_label),
+                                         activebackground='#DB5F44')
         g7_pehm_minus_button.grid(row=5, column=3)
 
         pehm_minus_button_hover = ButtonHover(g7_pehm_minus_button, 'subject_button', 'minus')
@@ -341,7 +350,8 @@ class CalculateButtons:
         g7_pehm_grade_label.grid(row=5, column=4, pady=5)
         g7_pehm_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g7_grades[5],
-                                                                         g7_pehm_grade_label, 5, 7, gwa_label))
+                                                                         g7_pehm_grade_label, 5, 7, gwa_label),
+                                       activebackground='#67C735')
         g7_pehm_add_button.grid(row=5, column=5)
 
         pehm_add_button_hover = ButtonHover(g7_pehm_add_button, 'subject_button', 'add')
@@ -355,7 +365,8 @@ class CalculateButtons:
 
         g7_valed_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                           command=lambda: self.grade_change('-', CalculateButtons.g7_grades[6],
-                                                                            g7_valed_grade_label, 6, 7, gwa_label))
+                                                                            g7_valed_grade_label, 6, 7, gwa_label),
+                                          activebackground='#DB5F44')
         g7_valed_minus_button.grid(row=7, column=0, padx=(200, 0))
 
         valed_minus_button_hover = ButtonHover(g7_valed_minus_button, 'subject_button', 'minus')
@@ -366,7 +377,8 @@ class CalculateButtons:
         g7_valed_grade_label.grid(row=7, column=1, pady=5)
         g7_valed_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('+', CalculateButtons.g7_grades[6],
-                                                                          g7_valed_grade_label, 6, 7, gwa_label))
+                                                                          g7_valed_grade_label, 6, 7, gwa_label),
+                                        activebackground='#67C735')
         g7_valed_add_button.grid(row=7, column=2, padx=(0, 25))
 
         valed_add_button_hover = ButtonHover(g7_valed_add_button, 'subject_button', 'add')
@@ -380,7 +392,8 @@ class CalculateButtons:
 
         g7_adtech_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                            command=lambda: self.grade_change('-', CalculateButtons.g7_grades[7],
-                                                                             g7_adtech_grade_label, 7, 7, gwa_label))
+                                                                             g7_adtech_grade_label, 7, 7, gwa_label),
+                                           activebackground='#DB5F44')
         g7_adtech_minus_button.grid(row=7, column=3)
 
         adtech_minus_button_hover = ButtonHover(g7_adtech_minus_button, 'subject_button', 'minus')
@@ -391,7 +404,8 @@ class CalculateButtons:
         g7_adtech_grade_label.grid(row=7, column=4, pady=5)
         g7_adtech_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('+', CalculateButtons.g7_grades[7],
-                                                                           g7_adtech_grade_label, 7, 7, gwa_label))
+                                                                           g7_adtech_grade_label, 7, 7, gwa_label),
+                                         activebackground='#67C735')
         g7_adtech_add_button.grid(row=7, column=5)
 
         adtech_add_button_hover = ButtonHover(g7_adtech_add_button, 'subject_button', 'add')
@@ -405,7 +419,8 @@ class CalculateButtons:
 
         g7_cs_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('-', CalculateButtons.g7_grades[8],
-                                                                         g7_cs_grade_label, 8, 7, gwa_label))
+                                                                         g7_cs_grade_label, 8, 7, gwa_label),
+                                       activebackground='#DB5F44')
         g7_cs_minus_button.grid(row=9, column=0, padx=(200, 0))
 
         cs_minus_button_hover = ButtonHover(g7_cs_minus_button, 'subject_button', 'minus')
@@ -416,7 +431,8 @@ class CalculateButtons:
         g7_cs_grade_label.grid(row=9, column=1, pady=5)
         g7_cs_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                      command=lambda: self.grade_change('+', CalculateButtons.g7_grades[8],
-                                                                       g7_cs_grade_label, 8, 7, gwa_label))
+                                                                       g7_cs_grade_label, 8, 7, gwa_label),
+                                     activebackground='#67C735')
         g7_cs_add_button.grid(row=9, column=2, padx=(0, 25))
 
         cs_add_button_hover = ButtonHover(g7_cs_add_button, 'subject_button', 'add')
@@ -473,7 +489,8 @@ class CalculateButtons:
 
         g8_is_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('-', CalculateButtons.g8_grades[0],
-                                                                         g8_is_grade_label, 0, 8, gwa_label))
+                                                                         g8_is_grade_label, 0, 8, gwa_label),
+                                       activebackground='#DB5F44')
         g8_is_minus_button.grid(row=1, column=0, padx=(200, 0))
 
         is_minus_button_hover = ButtonHover(g8_is_minus_button, 'subject_button', 'minus')
@@ -485,7 +502,8 @@ class CalculateButtons:
 
         g8_is_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                      command=lambda: self.grade_change('+', CalculateButtons.g8_grades[0],
-                                                                       g8_is_grade_label, 0, 8, gwa_label))
+                                                                       g8_is_grade_label, 0, 8, gwa_label),
+                                     activebackground='#67C735')
         g8_is_add_button.grid(row=1, column=2, padx=(0, 25))
 
         is_add_button_hover = ButtonHover(g8_is_add_button, 'subject_button', 'add')
@@ -498,7 +516,8 @@ class CalculateButtons:
         g8_math_label.grid(row=0, column=4, pady=(15, 0))
         g8_math_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g8_grades[1],
-                                                                           g8_math_grade_label, 1, 8, gwa_label))
+                                                                           g8_math_grade_label, 1, 8, gwa_label),
+                                         activebackground='#DB5F44')
         g8_math_minus_button.grid(row=1, column=3)
 
         math_minus_button_hover = ButtonHover(g8_math_minus_button, 'subject_button', 'minus')
@@ -510,7 +529,8 @@ class CalculateButtons:
 
         g8_math_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g8_grades[1],
-                                                                         g8_math_grade_label, 1, 8, gwa_label))
+                                                                         g8_math_grade_label, 1, 8, gwa_label),
+                                      activebackground='#67C735')
         g8_math_add_button.grid(row=1, column=5)
 
         math_add_button_hover = ButtonHover(g8_math_add_button, 'subject_button', 'add')
@@ -524,7 +544,8 @@ class CalculateButtons:
 
         g8_eng_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('-', CalculateButtons.g8_grades[2],
-                                                                          g8_eng_grade_label, 2, 8, gwa_label))
+                                                                          g8_eng_grade_label, 2, 8, gwa_label),
+                                        activebackground='#DB5F44')
         g8_eng_minus_button.grid(row=3, column=0, padx=(200, 0))
 
         eng_minus_button_hover = ButtonHover(g8_eng_minus_button, 'subject_button', 'minus')
@@ -536,7 +557,8 @@ class CalculateButtons:
 
         g8_eng_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                       command=lambda: self.grade_change('+', CalculateButtons.g8_grades[2],
-                                                                        g8_eng_grade_label, 2, 8, gwa_label))
+                                                                        g8_eng_grade_label, 2, 8, gwa_label),
+                                      activebackground='#67C735')
         g8_eng_add_button.grid(row=3, column=2, padx=(0, 25))
 
         eng_add_button_hover = ButtonHover(g8_eng_add_button, 'subject_button', 'add')
@@ -550,7 +572,8 @@ class CalculateButtons:
 
         g8_fil_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('-', CalculateButtons.g8_grades[3],
-                                                                          g8_fil_grade_label, 3, 8, gwa_label))
+                                                                          g8_fil_grade_label, 3, 8, gwa_label),
+                                        activebackground='#DB5F44')
         g8_fil_minus_button.grid(row=3, column=3)
 
         fil_minus_button_hover = ButtonHover(g8_fil_minus_button, 'subject_button', 'minus')
@@ -562,7 +585,8 @@ class CalculateButtons:
 
         g8_fil_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                       command=lambda: self.grade_change('+', CalculateButtons.g8_grades[3],
-                                                                        g8_fil_grade_label, 3, 8, gwa_label))
+                                                                        g8_fil_grade_label, 3, 8, gwa_label),
+                                      activebackground='#67C735')
         g8_fil_add_button.grid(row=3, column=5)
 
         fil_add_button_hover = ButtonHover(g8_fil_add_button, 'subject_button', 'add')
@@ -576,7 +600,8 @@ class CalculateButtons:
 
         g8_ss_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('-', CalculateButtons.g8_grades[4],
-                                                                         g8_ss_grade_label, 4, 8, gwa_label))
+                                                                         g8_ss_grade_label, 4, 8, gwa_label),
+                                       activebackground='#DB5F44')
         g8_ss_minus_button.grid(row=5, column=0, padx=(200, 0))
 
         ss_minus_button_hover = ButtonHover(g8_ss_minus_button, 'subject_button', 'minus')
@@ -588,7 +613,8 @@ class CalculateButtons:
 
         g8_ss_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                      command=lambda: self.grade_change('+', CalculateButtons.g8_grades[4],
-                                                                       g8_ss_grade_label, 4, 8, gwa_label))
+                                                                       g8_ss_grade_label, 4, 8, gwa_label),
+                                     activebackground='#67C735')
         g8_ss_add_button.grid(row=5, column=2, padx=(0, 25))
 
         ss_add_button_hover = ButtonHover(g8_ss_add_button, 'subject_button', 'add')
@@ -602,7 +628,8 @@ class CalculateButtons:
 
         g8_pehm_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g8_grades[5],
-                                                                           g8_pehm_grade_label, 5, 8, gwa_label))
+                                                                           g8_pehm_grade_label, 5, 8, gwa_label),
+                                         activebackground='#DB5F44')
         g8_pehm_minus_button.grid(row=5, column=3)
 
         pehm_minus_button_hover = ButtonHover(g8_pehm_minus_button, 'subject_button', 'minus')
@@ -614,7 +641,8 @@ class CalculateButtons:
 
         g8_pehm_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g8_grades[5],
-                                                                         g8_pehm_grade_label, 5, 8, gwa_label))
+                                                                         g8_pehm_grade_label, 5, 8, gwa_label),
+                                       activebackground='#67C735')
         g8_pehm_add_button.grid(row=5, column=5)
 
         pehm_add_button_hover = ButtonHover(g8_pehm_add_button, 'subject_button', 'add')
@@ -628,7 +656,8 @@ class CalculateButtons:
 
         g8_valed_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                           command=lambda: self.grade_change('-', CalculateButtons.g8_grades[6],
-                                                                            g8_valed_grade_label, 6, 8, gwa_label))
+                                                                            g8_valed_grade_label, 6, 8, gwa_label),
+                                          activebackground='#DB5F44')
         g8_valed_minus_button.grid(row=7, column=0, padx=(200, 0))
 
         valed_minus_button_hover = ButtonHover(g8_valed_minus_button, 'subject_button', 'minus')
@@ -640,7 +669,8 @@ class CalculateButtons:
 
         g8_valed_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('+', CalculateButtons.g8_grades[6],
-                                                                          g8_valed_grade_label, 6, 8, gwa_label))
+                                                                          g8_valed_grade_label, 6, 8, gwa_label),
+                                        activebackground='#67C735')
         g8_valed_add_button.grid(row=7, column=2, padx=(0, 25))
 
         valed_add_button_hover = ButtonHover(g8_valed_add_button, 'subject_button', 'add')
@@ -654,7 +684,8 @@ class CalculateButtons:
 
         g8_adtech_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                            command=lambda: self.grade_change('-', CalculateButtons.g8_grades[7],
-                                                                             g8_adtech_grade_label, 7, 8, gwa_label))
+                                                                             g8_adtech_grade_label, 7, 8, gwa_label),
+                                           activebackground='#DB5F44')
         g8_adtech_minus_button.grid(row=7, column=3)
 
         adtech_minus_button_hover = ButtonHover(g8_adtech_minus_button, 'subject_button', 'minus')
@@ -666,7 +697,8 @@ class CalculateButtons:
 
         g8_adtech_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('+', CalculateButtons.g8_grades[7],
-                                                                           g8_adtech_grade_label, 7, 8, gwa_label))
+                                                                           g8_adtech_grade_label, 7, 8, gwa_label),
+                                         activebackground='#67C735')
         g8_adtech_add_button.grid(row=7, column=5)
 
         adtech_add_button_hover = ButtonHover(g8_adtech_add_button, 'subject_button', 'add')
@@ -680,7 +712,8 @@ class CalculateButtons:
 
         g8_cs_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('-', CalculateButtons.g8_grades[8],
-                                                                         g8_cs_grade_label, 8, 8, gwa_label))
+                                                                         g8_cs_grade_label, 8, 8, gwa_label),
+                                       activebackground='#DB5F44')
         g8_cs_minus_button.grid(row=9, column=0, padx=(200, 0))
 
         cs_minus_button_hover = ButtonHover(g8_cs_minus_button, 'subject_button', 'minus')
@@ -692,7 +725,8 @@ class CalculateButtons:
 
         g8_cs_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                      command=lambda: self.grade_change('+', CalculateButtons.g8_grades[8],
-                                                                       g8_cs_grade_label, 8, 8, gwa_label))
+                                                                       g8_cs_grade_label, 8, 8, gwa_label),
+                                     activebackground='#67C735')
         g8_cs_add_button.grid(row=9, column=2, padx=(0, 25))
 
         cs_add_button_hover = ButtonHover(g8_cs_add_button, 'subject_button', 'add')
@@ -706,7 +740,8 @@ class CalculateButtons:
 
         g8_es_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('-', CalculateButtons.g8_grades[9],
-                                                                         g8_es_grade_label, 9, 8, gwa_label))
+                                                                         g8_es_grade_label, 9, 8, gwa_label),
+                                       activebackground='#DB5F44')
         g8_es_minus_button.grid(row=9, column=3)
 
         es_minus_button_hover = ButtonHover(g8_es_minus_button, 'subject_button', 'minus')
@@ -718,7 +753,8 @@ class CalculateButtons:
 
         g8_es_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                      command=lambda: self.grade_change('+', CalculateButtons.g8_grades[9],
-                                                                       g8_es_grade_label, 9, 8, gwa_label))
+                                                                       g8_es_grade_label, 9, 8, gwa_label),
+                                     activebackground='#67C735')
         g8_es_add_button.grid(row=9, column=5)
 
         es_add_button_hover = ButtonHover(g8_es_add_button, 'subject_button', 'add')
@@ -776,7 +812,8 @@ class CalculateButtons:
 
         g9_bio_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('-', CalculateButtons.g9_grades[0],
-                                                                          g9_bio_grade_label, 0, 9, gwa_label))
+                                                                          g9_bio_grade_label, 0, 9, gwa_label),
+                                        activebackground='#DB5F44')
         g9_bio_minus_button.grid(row=1, column=0, padx=(200, 0))
 
         bio_minus_button_hover = ButtonHover(g9_bio_minus_button, 'subject_button', 'minus')
@@ -788,7 +825,8 @@ class CalculateButtons:
 
         g9_bio_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                       command=lambda: self.grade_change('+', CalculateButtons.g9_grades[0],
-                                                                        g9_bio_grade_label, 0, 9, gwa_label))
+                                                                        g9_bio_grade_label, 0, 9, gwa_label),
+                                      activebackground='#67C735')
         g9_bio_add_button.grid(row=1, column=2, padx=(0, 25))
 
         bio_add_button_hover = ButtonHover(g9_bio_add_button, 'subject_button', 'add')
@@ -802,7 +840,8 @@ class CalculateButtons:
 
         g9_chem_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g9_grades[1],
-                                                                           g9_chem_grade_label, 1, 9, gwa_label))
+                                                                           g9_chem_grade_label, 1, 9, gwa_label),
+                                         activebackground='#DB5F44')
         g9_chem_minus_button.grid(row=1, column=3)
 
         chem_minus_button_hover = ButtonHover(g9_chem_minus_button, 'subject_button', 'minus')
@@ -814,7 +853,8 @@ class CalculateButtons:
 
         g9_chem_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g9_grades[1],
-                                                                         g9_chem_grade_label, 1, 9, gwa_label))
+                                                                         g9_chem_grade_label, 1, 9, gwa_label),
+                                       activebackground='#67C735')
         g9_chem_add_button.grid(row=1, column=5)
 
         chem_add_button_hover = ButtonHover(g9_chem_add_button, 'subject_button', 'add')
@@ -828,7 +868,8 @@ class CalculateButtons:
 
         g9_p6_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('-', CalculateButtons.g9_grades[2],
-                                                                         g9_p6_grade_label, 2, 9, gwa_label))
+                                                                         g9_p6_grade_label, 2, 9, gwa_label),
+                                       activebackground='#DB5F44')
         g9_p6_minus_button.grid(row=3, column=0, padx=(200, 0))
 
         p6_minus_button_hover = ButtonHover(g9_p6_minus_button, 'subject_button', 'minus')
@@ -840,7 +881,8 @@ class CalculateButtons:
 
         g9_p6_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                      command=lambda: self.grade_change('+', CalculateButtons.g9_grades[2],
-                                                                       g9_p6_grade_label, 2, 9, gwa_label))
+                                                                       g9_p6_grade_label, 2, 9, gwa_label),
+                                     activebackground='#67C735')
         g9_p6_add_button.grid(row=3, column=2, padx=(0, 25))
 
         p6_add_button_hover = ButtonHover(g9_p6_add_button, 'subject_button', 'add')
@@ -854,7 +896,8 @@ class CalculateButtons:
 
         g9_math_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g9_grades[3],
-                                                                           g9_math_grade_label, 3, 9, gwa_label))
+                                                                           g9_math_grade_label, 3, 9, gwa_label),
+                                         activebackground='#DB5F44')
         g9_math_minus_button.grid(row=3, column=3)
 
         math_minus_button_hover = ButtonHover(g9_math_minus_button, 'subject_button', 'minus')
@@ -866,7 +909,8 @@ class CalculateButtons:
 
         g9_math_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g9_grades[3],
-                                                                         g9_math_grade_label, 3, 9, gwa_label))
+                                                                         g9_math_grade_label, 3, 9, gwa_label),
+                                       activebackground='#67C735')
         g9_math_add_button.grid(row=3, column=5)
 
         math_add_button_hover = ButtonHover(g9_math_add_button, 'subject_button', 'add')
@@ -880,7 +924,8 @@ class CalculateButtons:
 
         g9_eng_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('-', CalculateButtons.g9_grades[4],
-                                                                          g9_eng_grade_label, 4, 9, gwa_label))
+                                                                          g9_eng_grade_label, 4, 9, gwa_label),
+                                        activebackground='#DB5F44')
         g9_eng_minus_button.grid(row=5, column=0, padx=(200, 0))
 
         eng_minus_button_hover = ButtonHover(g9_eng_minus_button, 'subject_button', 'minus')
@@ -892,7 +937,8 @@ class CalculateButtons:
 
         g9_eng_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                       command=lambda: self.grade_change('+', CalculateButtons.g9_grades[4],
-                                                                        g9_eng_grade_label, 4, 9, gwa_label))
+                                                                        g9_eng_grade_label, 4, 9, gwa_label),
+                                      activebackground='#67C735')
         g9_eng_add_button.grid(row=5, column=2, padx=(0, 25))
 
         eng_add_button_hover = ButtonHover(g9_eng_add_button, 'subject_button', 'add')
@@ -906,7 +952,8 @@ class CalculateButtons:
 
         g9_fil_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('-', CalculateButtons.g9_grades[5],
-                                                                          g9_fil_grade_label, 5, 9, gwa_label))
+                                                                          g9_fil_grade_label, 5, 9, gwa_label),
+                                        activebackground='#DB5F44')
         g9_fil_minus_button.grid(row=5, column=3)
 
         fil_minus_button_hover = ButtonHover(g9_fil_minus_button, 'subject_button', 'minus')
@@ -918,7 +965,8 @@ class CalculateButtons:
 
         g9_fil_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                       command=lambda: self.grade_change('+', CalculateButtons.g9_grades[5],
-                                                                        g9_fil_grade_label, 5, 9, gwa_label))
+                                                                        g9_fil_grade_label, 5, 9, gwa_label),
+                                      activebackground='#67C735')
         g9_fil_add_button.grid(row=5, column=5)
 
         fil_add_button_hover = ButtonHover(g9_fil_add_button, 'subject_button', 'add')
@@ -932,7 +980,8 @@ class CalculateButtons:
 
         g9_ss_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('-', CalculateButtons.g9_grades[6],
-                                                                         g9_ss_grade_label, 6, 9, gwa_label))
+                                                                         g9_ss_grade_label, 6, 9, gwa_label),
+                                       activebackground='#DB5F44')
         g9_ss_minus_button.grid(row=7, column=0, padx=(200, 0))
 
         ss_minus_button_hover = ButtonHover(g9_ss_minus_button, 'subject_button', 'minus')
@@ -944,7 +993,8 @@ class CalculateButtons:
 
         g9_ss_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                      command=lambda: self.grade_change('+', CalculateButtons.g9_grades[6],
-                                                                       g9_ss_grade_label, 6, 9, gwa_label))
+                                                                       g9_ss_grade_label, 6, 9, gwa_label),
+                                     activebackground='#67C735')
         g9_ss_add_button.grid(row=7, column=2, padx=(0, 25))
 
         ss_add_button_hover = ButtonHover(g9_ss_add_button, 'subject_button', 'add')
@@ -958,7 +1008,8 @@ class CalculateButtons:
 
         g9_pehm_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g9_grades[7],
-                                                                           g9_pehm_grade_label, 7, 9, gwa_label))
+                                                                           g9_pehm_grade_label, 7, 9, gwa_label),
+                                         activebackground='#DB5F44')
         g9_pehm_minus_button.grid(row=7, column=3)
 
         pehm_minus_button_hover = ButtonHover(g9_pehm_minus_button, 'subject_button', 'minus')
@@ -970,7 +1021,8 @@ class CalculateButtons:
 
         g9_pehm_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g9_grades[7],
-                                                                         g9_pehm_grade_label, 7, 9, gwa_label))
+                                                                         g9_pehm_grade_label, 7, 9, gwa_label),
+                                       activebackground='#67C735')
         g9_pehm_add_button.grid(row=7, column=5)
 
         pehm_add_button_hover = ButtonHover(g9_pehm_add_button, 'subject_button', 'add')
@@ -984,7 +1036,8 @@ class CalculateButtons:
 
         g9_stat_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g9_grades[8],
-                                                                           g9_stat_grade_label, 8, 9, gwa_label))
+                                                                           g9_stat_grade_label, 8, 9, gwa_label),
+                                         activebackground='#DB5F44')
         g9_stat_minus_button.grid(row=9, column=0, padx=(200, 0))
 
         stat_minus_button_hover = ButtonHover(g9_stat_minus_button, 'subject_button', 'minus')
@@ -996,7 +1049,8 @@ class CalculateButtons:
 
         g9_stat_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g9_grades[8],
-                                                                         g9_stat_grade_label, 8, 9, gwa_label))
+                                                                         g9_stat_grade_label, 8, 9, gwa_label),
+                                       activebackground='#67C735')
         g9_stat_add_button.grid(row=9, column=2, padx=(0, 25))
 
         stat_add_button_hover = ButtonHover(g9_stat_add_button, 'subject_button', 'add')
@@ -1010,7 +1064,8 @@ class CalculateButtons:
 
         g9_cs_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('-', CalculateButtons.g9_grades[9],
-                                                                         g9_cs_grade_label, 9, 9, gwa_label))
+                                                                         g9_cs_grade_label, 9, 9, gwa_label),
+                                       activebackground='#DB5F44')
         g9_cs_minus_button.grid(row=9, column=3)
 
         cs_minus_button_hover = ButtonHover(g9_cs_minus_button, 'subject_button', 'minus')
@@ -1022,7 +1077,8 @@ class CalculateButtons:
 
         g9_cs_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                      command=lambda: self.grade_change('+', CalculateButtons.g9_grades[9],
-                                                                       g9_cs_grade_label, 9, 9, gwa_label))
+                                                                       g9_cs_grade_label, 9, 9, gwa_label),
+                                     activebackground='#67C735')
         g9_cs_add_button.grid(row=9, column=5)
 
         cs_add_button_hover = ButtonHover(g9_cs_add_button, 'subject_button', 'add')
@@ -1080,7 +1136,8 @@ class CalculateButtons:
 
         g10_bio_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g10_grades[0],
-                                                                           g10_bio_grade_label, 0, 10, gwa_label))
+                                                                           g10_bio_grade_label, 0, 10, gwa_label),
+                                         activebackground='#DB5F44')
         g10_bio_minus_button.grid(row=1, column=0, padx=(200, 0))
 
         bio_minus_button_hover = ButtonHover(g10_bio_minus_button, 'subject_button', 'minus')
@@ -1092,7 +1149,8 @@ class CalculateButtons:
 
         g10_bio_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g10_grades[0],
-                                                                         g10_bio_grade_label, 0, 10, gwa_label))
+                                                                         g10_bio_grade_label, 0, 10, gwa_label),
+                                       activebackground='#67C735')
         g10_bio_add_button.grid(row=1, column=2, padx=(0, 25))
 
         bio_add_button_hover = ButtonHover(g10_bio_add_button, 'subject_button', 'add')
@@ -1106,7 +1164,8 @@ class CalculateButtons:
 
         g10_chem_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                           command=lambda: self.grade_change('-', CalculateButtons.g10_grades[1],
-                                                                            g10_chem_grade_label, 1, 10, gwa_label))
+                                                                            g10_chem_grade_label, 1, 10, gwa_label),
+                                          activebackground='#DB5F44')
         g10_chem_minus_button.grid(row=1, column=3)
 
         chem_minus_button_hover = ButtonHover(g10_chem_minus_button, 'subject_button', 'minus')
@@ -1118,7 +1177,8 @@ class CalculateButtons:
 
         g10_chem_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('+', CalculateButtons.g10_grades[1],
-                                                                          g10_chem_grade_label, 1, 10, gwa_label))
+                                                                          g10_chem_grade_label, 1, 10, gwa_label),
+                                        activebackground='#67C735')
         g10_chem_add_button.grid(row=1, column=5)
 
         chem_add_button_hover = ButtonHover(g10_chem_add_button, 'subject_button', 'add')
@@ -1132,7 +1192,8 @@ class CalculateButtons:
 
         g10_p6_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('-', CalculateButtons.g10_grades[2],
-                                                                          g10_p6_grade_label, 2, 10, gwa_label))
+                                                                          g10_p6_grade_label, 2, 10, gwa_label),
+                                        activebackground='#DB5F44')
         g10_p6_minus_button.grid(row=3, column=0, padx=(200, 0))
 
         p6_minus_button_hover = ButtonHover(g10_p6_minus_button, 'subject_button', 'minus')
@@ -1144,7 +1205,8 @@ class CalculateButtons:
 
         g10_p6_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                       command=lambda: self.grade_change('+', CalculateButtons.g10_grades[2],
-                                                                        g10_p6_grade_label, 2, 10, gwa_label))
+                                                                        g10_p6_grade_label, 2, 10, gwa_label),
+                                      activebackground='#67C735')
         g10_p6_add_button.grid(row=3, column=2, padx=(0, 25))
 
         p6_add_button_hover = ButtonHover(g10_p6_add_button, 'subject_button', 'add')
@@ -1158,7 +1220,8 @@ class CalculateButtons:
 
         g10_math_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                           command=lambda: self.grade_change('-', CalculateButtons.g10_grades[3],
-                                                                            g10_math_grade_label, 3, 10, gwa_label))
+                                                                            g10_math_grade_label, 3, 10, gwa_label),
+                                          activebackground='#DB5F44')
         g10_math_minus_button.grid(row=3, column=3)
 
         math_minus_button_hover = ButtonHover(g10_math_minus_button, 'subject_button', 'minus')
@@ -1170,7 +1233,8 @@ class CalculateButtons:
 
         g10_math_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('+', CalculateButtons.g10_grades[3],
-                                                                          g10_math_grade_label, 3, 10, gwa_label))
+                                                                          g10_math_grade_label, 3, 10, gwa_label),
+                                        activebackground='#67C735')
         g10_math_add_button.grid(row=3, column=5)
 
         math_add_button_hover = ButtonHover(g10_math_add_button, 'subject_button', 'add')
@@ -1184,7 +1248,8 @@ class CalculateButtons:
 
         g10_eng_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g10_grades[4],
-                                                                           g10_eng_grade_label, 4, 10, gwa_label))
+                                                                           g10_eng_grade_label, 4, 10, gwa_label),
+                                         activebackground='#DB5F44')
         g10_eng_minus_button.grid(row=5, column=0, padx=(200, 0))
 
         eng_minus_button_hover = ButtonHover(g10_eng_minus_button, 'subject_button', 'minus')
@@ -1196,7 +1261,8 @@ class CalculateButtons:
 
         g10_eng_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g10_grades[4],
-                                                                         g10_eng_grade_label, 4, 10, gwa_label))
+                                                                         g10_eng_grade_label, 4, 10, gwa_label),
+                                       activebackground='#67C735')
         g10_eng_add_button.grid(row=5, column=2, padx=(0, 25))
 
         eng_add_button_hover = ButtonHover(g10_eng_add_button, 'subject_button', 'add')
@@ -1210,7 +1276,8 @@ class CalculateButtons:
 
         g10_fil_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g10_grades[5],
-                                                                           g10_fil_grade_label, 5, 10, gwa_label))
+                                                                           g10_fil_grade_label, 5, 10, gwa_label),
+                                         activebackground='#DB5F44')
         g10_fil_minus_button.grid(row=5, column=3)
 
         fil_minus_button_hover = ButtonHover(g10_fil_minus_button, 'subject_button', 'minus')
@@ -1222,7 +1289,8 @@ class CalculateButtons:
 
         g10_fil_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g10_grades[5],
-                                                                         g10_fil_grade_label, 5, 10, gwa_label))
+                                                                         g10_fil_grade_label, 5, 10, gwa_label),
+                                       activebackground='#67C735')
         g10_fil_add_button.grid(row=5, column=5)
 
         fil_add_button_hover = ButtonHover(g10_fil_add_button, 'subject_button', 'add')
@@ -1236,7 +1304,8 @@ class CalculateButtons:
 
         g10_ss_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('-', CalculateButtons.g10_grades[6],
-                                                                          g10_ss_grade_label, 6, 10, gwa_label))
+                                                                          g10_ss_grade_label, 6, 10, gwa_label),
+                                        activebackground='#DB5F44')
         g10_ss_minus_button.grid(row=7, column=0, padx=(200, 0))
 
         ss_minus_button_hover = ButtonHover(g10_ss_minus_button, 'subject_button', 'minus')
@@ -1248,7 +1317,8 @@ class CalculateButtons:
 
         g10_ss_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                       command=lambda: self.grade_change('+', CalculateButtons.g10_grades[6],
-                                                                        g10_ss_grade_label, 6, 10, gwa_label))
+                                                                        g10_ss_grade_label, 6, 10, gwa_label),
+                                      activebackground='#67C735')
         g10_ss_add_button.grid(row=7, column=2, padx=(0, 25))
 
         ss_add_button_hover = ButtonHover(g10_ss_add_button, 'subject_button', 'add')
@@ -1262,7 +1332,8 @@ class CalculateButtons:
 
         g10_pehm_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                           command=lambda: self.grade_change('-', CalculateButtons.g10_grades[7],
-                                                                            g10_pehm_grade_label, 7, 10, gwa_label))
+                                                                            g10_pehm_grade_label, 7, 10, gwa_label),
+                                          activebackground='#DB5F44')
         g10_pehm_minus_button.grid(row=7, column=3)
 
         pehm_minus_button_hover = ButtonHover(g10_pehm_minus_button, 'subject_button', 'minus')
@@ -1274,7 +1345,8 @@ class CalculateButtons:
 
         g10_pehm_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('+', CalculateButtons.g10_grades[7],
-                                                                          g10_pehm_grade_label, 7, 10, gwa_label))
+                                                                          g10_pehm_grade_label, 7, 10, gwa_label),
+                                        activebackground='#67C735')
         g10_pehm_add_button.grid(row=7, column=5)
 
         pehm_add_button_hover = ButtonHover(g10_pehm_add_button, 'subject_button', 'add')
@@ -1288,7 +1360,8 @@ class CalculateButtons:
 
         g10_res_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g10_grades[8],
-                                                                           g10_res_grade_label, 8, 10, gwa_label))
+                                                                           g10_res_grade_label, 8, 10, gwa_label),
+                                         activebackground='#DB5F44')
         g10_res_minus_button.grid(row=9, column=0, padx=(200, 0))
 
         res_minus_button_hover = ButtonHover(g10_res_minus_button, 'subject_button', 'minus')
@@ -1300,7 +1373,8 @@ class CalculateButtons:
 
         g10_res_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g10_grades[8],
-                                                                         g10_res_grade_label, 8, 10, gwa_label))
+                                                                         g10_res_grade_label, 8, 10, gwa_label),
+                                       activebackground='#67C735')
         g10_res_add_button.grid(row=9, column=2, padx=(0, 25))
 
         res_add_button_hover = ButtonHover(g10_res_add_button, 'subject_button', 'add')
@@ -1314,7 +1388,8 @@ class CalculateButtons:
 
         g10_cs_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('-', CalculateButtons.g10_grades[9],
-                                                                          g10_cs_grade_label, 9, 10, gwa_label))
+                                                                          g10_cs_grade_label, 9, 10, gwa_label),
+                                        activebackground='#DB5F44')
         g10_cs_minus_button.grid(row=9, column=3)
 
         cs_minus_button_hover = ButtonHover(g10_cs_minus_button, 'subject_button', 'minus')
@@ -1326,7 +1401,8 @@ class CalculateButtons:
 
         g10_cs_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                       command=lambda: self.grade_change('+', CalculateButtons.g10_grades[9],
-                                                                        g10_cs_grade_label, 9, 10, gwa_label))
+                                                                        g10_cs_grade_label, 9, 10, gwa_label),
+                                      activebackground='#67C735')
         g10_cs_add_button.grid(row=9, column=5)
 
         cs_add_button_hover = ButtonHover(g10_cs_add_button, 'subject_button', 'add')
@@ -1384,7 +1460,8 @@ class CalculateButtons:
 
         g11_core_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                           command=lambda: self.grade_change('-', CalculateButtons.g11_grades[0],
-                                                                            g11_core_grade_label, 0, 11, gwa_label))
+                                                                            g11_core_grade_label, 0, 11, gwa_label),
+                                          activebackground='#DB5F44')
         g11_core_minus_button.grid(row=1, column=0, padx=(200, 0))
 
         core_minus_button_hover = ButtonHover(g11_core_minus_button, 'subject_button', 'minus')
@@ -1396,7 +1473,8 @@ class CalculateButtons:
 
         g11_core_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('+', CalculateButtons.g11_grades[0],
-                                                                          g11_core_grade_label, 0, 11, gwa_label))
+                                                                          g11_core_grade_label, 0, 11, gwa_label),
+                                        activebackground='#67C735')
         g11_core_add_button.grid(row=1, column=2, padx=(0, 25))
 
         core_add_button_hover = ButtonHover(g11_core_add_button, 'subject_button', 'add')
@@ -1410,7 +1488,8 @@ class CalculateButtons:
 
         g11_math_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                           command=lambda: self.grade_change('-', CalculateButtons.g11_grades[1],
-                                                                            g11_math_grade_label, 1, 11, gwa_label))
+                                                                            g11_math_grade_label, 1, 11, gwa_label),
+                                          activebackground='#DB5F44')
         g11_math_minus_button.grid(row=1, column=3)
 
         math_minus_button_hover = ButtonHover(g11_math_minus_button, 'subject_button', 'minus')
@@ -1422,7 +1501,8 @@ class CalculateButtons:
 
         g11_math_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('+', CalculateButtons.g11_grades[1],
-                                                                          g11_math_grade_label, 1, 11, gwa_label))
+                                                                          g11_math_grade_label, 1, 11, gwa_label),
+                                        activebackground='#67C735')
         g11_math_add_button.grid(row=1, column=5)
 
         math_add_button_hover = ButtonHover(g11_math_add_button, 'subject_button', 'add')
@@ -1436,7 +1516,8 @@ class CalculateButtons:
 
         g11_eng_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g11_grades[2],
-                                                                           g11_eng_grade_label, 2, 11, gwa_label))
+                                                                           g11_eng_grade_label, 2, 11, gwa_label),
+                                         activebackground='#DB5F44')
         g11_eng_minus_button.grid(row=3, column=0, padx=(200, 0))
 
         eng_minus_button_hover = ButtonHover(g11_eng_minus_button, 'subject_button', 'minus')
@@ -1448,7 +1529,8 @@ class CalculateButtons:
 
         g11_eng_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g11_grades[2],
-                                                                         g11_eng_grade_label, 2, 11, gwa_label))
+                                                                         g11_eng_grade_label, 2, 11, gwa_label),
+                                       activebackground='#67C735')
         g11_eng_add_button.grid(row=3, column=2, padx=(0, 25))
 
         eng_add_button_hover = ButtonHover(g11_eng_add_button, 'subject_button', 'add')
@@ -1462,7 +1544,8 @@ class CalculateButtons:
 
         g11_fil_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g11_grades[3],
-                                                                           g11_fil_grade_label, 3, 11, gwa_label))
+                                                                           g11_fil_grade_label, 3, 11, gwa_label),
+                                         activebackground='#DB5F44')
         g11_fil_minus_button.grid(row=3, column=3)
 
         fil_minus_button_hover = ButtonHover(g11_fil_minus_button, 'subject_button', 'minus')
@@ -1474,7 +1557,8 @@ class CalculateButtons:
 
         g11_fil_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g11_grades[3],
-                                                                         g11_fil_grade_label, 3, 11, gwa_label))
+                                                                         g11_fil_grade_label, 3, 11, gwa_label),
+                                       activebackground='#67C735')
         g11_fil_add_button.grid(row=3, column=5)
 
         fil_add_button_hover = ButtonHover(g11_fil_add_button, 'subject_button', 'add')
@@ -1488,7 +1572,8 @@ class CalculateButtons:
 
         g11_ss_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('-', CalculateButtons.g11_grades[4],
-                                                                          g11_ss_grade_label, 4, 11, gwa_label))
+                                                                          g11_ss_grade_label, 4, 11, gwa_label),
+                                        activebackground='#DB5F44')
         g11_ss_minus_button.grid(row=5, column=0, padx=(200, 0))
 
         ss_minus_button_hover = ButtonHover(g11_ss_minus_button, 'subject_button', 'minus')
@@ -1500,7 +1585,8 @@ class CalculateButtons:
 
         g11_ss_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                       command=lambda: self.grade_change('+', CalculateButtons.g11_grades[4],
-                                                                        g11_ss_grade_label, 4, 11, gwa_label))
+                                                                        g11_ss_grade_label, 4, 11, gwa_label),
+                                      activebackground='#67C735')
         g11_ss_add_button.grid(row=5, column=2, padx=(0, 25))
 
         ss_add_button_hover = ButtonHover(g11_ss_add_button, 'subject_button', 'add')
@@ -1514,7 +1600,8 @@ class CalculateButtons:
 
         g11_res_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g11_grades[5],
-                                                                           g11_res_grade_label, 5, 11, gwa_label))
+                                                                           g11_res_grade_label, 5, 11, gwa_label),
+                                         activebackground='#DB5F44')
         g11_res_minus_button.grid(row=5, column=3)
 
         res_minus_button_hover = ButtonHover(g11_res_minus_button, 'subject_button', 'minus')
@@ -1526,7 +1613,8 @@ class CalculateButtons:
 
         g11_res_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g11_grades[5],
-                                                                         g11_res_grade_label, 5, 11, gwa_label))
+                                                                         g11_res_grade_label, 5, 11, gwa_label),
+                                       activebackground='#67C735')
         g11_res_add_button.grid(row=5, column=5)
 
         res_add_button_hover = ButtonHover(g11_res_add_button, 'subject_button', 'add')
@@ -1540,7 +1628,8 @@ class CalculateButtons:
 
         g11_elec_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                           command=lambda: self.grade_change('-', CalculateButtons.g11_grades[6],
-                                                                            g11_elec_grade_label, 6, 11, gwa_label))
+                                                                            g11_elec_grade_label, 6, 11, gwa_label),
+                                          activebackground='#DB5F44')
         g11_elec_minus_button.grid(row=7, column=0, padx=(200, 0))
 
         elec_minus_button_hover = ButtonHover(g11_elec_minus_button, 'subject_button', 'minus')
@@ -1552,7 +1641,8 @@ class CalculateButtons:
 
         g11_elec_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('+', CalculateButtons.g11_grades[6],
-                                                                          g11_elec_grade_label, 6, 11, gwa_label))
+                                                                          g11_elec_grade_label, 6, 11, gwa_label),
+                                        activebackground='#67C735')
         g11_elec_add_button.grid(row=7, column=2, padx=(0, 25))
 
         elec_add_button_hover = ButtonHover(g11_elec_add_button, 'subject_button', 'add')
@@ -1606,7 +1696,8 @@ class CalculateButtons:
 
         g12_core_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                           command=lambda: self.grade_change('-', CalculateButtons.g12_grades[0],
-                                                                            g12_core_grade_label, 0, 12, gwa_label))
+                                                                            g12_core_grade_label, 0, 12, gwa_label),
+                                          activebackground='#DB5F44')
         g12_core_minus_button.grid(row=1, column=0, padx=(200, 0))
 
         core_minus_button_hover = ButtonHover(g12_core_minus_button, 'subject_button', 'minus')
@@ -1618,7 +1709,8 @@ class CalculateButtons:
 
         g12_core_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('+', CalculateButtons.g12_grades[0],
-                                                                          g12_core_grade_label, 0, 12, gwa_label))
+                                                                          g12_core_grade_label, 0, 12, gwa_label),
+                                        activebackground='#67C735')
         g12_core_add_button.grid(row=1, column=2, padx=(0, 25))
 
         core_add_button_hover = ButtonHover(g12_core_add_button, 'subject_button', 'add')
@@ -1632,7 +1724,8 @@ class CalculateButtons:
 
         g12_math_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                           command=lambda: self.grade_change('-', CalculateButtons.g12_grades[1],
-                                                                            g12_math_grade_label, 1, 12, gwa_label))
+                                                                            g12_math_grade_label, 1, 12, gwa_label),
+                                          activebackground='#DB5F44')
         g12_math_minus_button.grid(row=1, column=3)
 
         math_minus_button_hover = ButtonHover(g12_math_minus_button, 'subject_button', 'minus')
@@ -1644,7 +1737,8 @@ class CalculateButtons:
 
         g12_math_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('+', CalculateButtons.g12_grades[1],
-                                                                          g12_math_grade_label, 1, 12, gwa_label))
+                                                                          g12_math_grade_label, 1, 12, gwa_label),
+                                        activebackground='#67C735')
         g12_math_add_button.grid(row=1, column=5)
 
         math_add_button_hover = ButtonHover(g12_math_add_button, 'subject_button', 'add')
@@ -1658,7 +1752,8 @@ class CalculateButtons:
 
         g12_eng_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g12_grades[2],
-                                                                           g12_eng_grade_label, 2, 12, gwa_label))
+                                                                           g12_eng_grade_label, 2, 12, gwa_label),
+                                         activebackground='#DB5F44')
         g12_eng_minus_button.grid(row=3, column=0, padx=(200, 0))
 
         eng_minus_button_hover = ButtonHover(g12_eng_minus_button, 'subject_button', 'minus')
@@ -1670,7 +1765,8 @@ class CalculateButtons:
 
         g12_eng_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g12_grades[2],
-                                                                         g12_eng_grade_label, 2, 12, gwa_label))
+                                                                         g12_eng_grade_label, 2, 12, gwa_label),
+                                       activebackground='#67C735')
         g12_eng_add_button.grid(row=3, column=2, padx=(0, 25))
 
         eng_add_button_hover = ButtonHover(g12_eng_add_button, 'subject_button', 'add')
@@ -1684,7 +1780,8 @@ class CalculateButtons:
 
         g12_fil_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g12_grades[3],
-                                                                           g12_fil_grade_label, 3, 12, gwa_label))
+                                                                           g12_fil_grade_label, 3, 12, gwa_label),
+                                         activebackground='#DB5F44')
         g12_fil_minus_button.grid(row=3, column=3)
 
         fil_minus_button_hover = ButtonHover(g12_fil_minus_button, 'subject_button', 'minus')
@@ -1696,7 +1793,8 @@ class CalculateButtons:
 
         g12_fil_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g12_grades[3],
-                                                                         g12_fil_grade_label, 3, 12, gwa_label))
+                                                                         g12_fil_grade_label, 3, 12, gwa_label),
+                                       activebackground='#67C735')
         g12_fil_add_button.grid(row=3, column=5)
 
         fil_add_button_hover = ButtonHover(g12_fil_add_button, 'subject_button', 'add')
@@ -1710,7 +1808,8 @@ class CalculateButtons:
 
         g12_ss_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('-', CalculateButtons.g12_grades[4],
-                                                                          g12_ss_grade_label, 4, 12, gwa_label))
+                                                                          g12_ss_grade_label, 4, 12, gwa_label),
+                                        activebackground='#DB5F44')
         g12_ss_minus_button.grid(row=5, column=0, padx=(200, 0))
 
         ss_minus_button_hover = ButtonHover(g12_ss_minus_button, 'subject_button', 'minus')
@@ -1722,7 +1821,8 @@ class CalculateButtons:
 
         g12_ss_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                       command=lambda: self.grade_change('+', CalculateButtons.g12_grades[4],
-                                                                        g12_ss_grade_label, 4, 12, gwa_label))
+                                                                        g12_ss_grade_label, 4, 12, gwa_label),
+                                      activebackground='#67C735')
         g12_ss_add_button.grid(row=5, column=2, padx=(0, 25))
 
         ss_add_button_hover = ButtonHover(g12_ss_add_button, 'subject_button', 'add')
@@ -1736,7 +1836,8 @@ class CalculateButtons:
 
         g12_res_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                          command=lambda: self.grade_change('-', CalculateButtons.g12_grades[5],
-                                                                           g12_res_grade_label, 5, 12, gwa_label))
+                                                                           g12_res_grade_label, 5, 12, gwa_label),
+                                         activebackground='#DB5F44')
         g12_res_minus_button.grid(row=5, column=3)
 
         res_minus_button_hover = ButtonHover(g12_res_minus_button, 'subject_button', 'minus')
@@ -1748,7 +1849,8 @@ class CalculateButtons:
 
         g12_res_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                        command=lambda: self.grade_change('+', CalculateButtons.g12_grades[5],
-                                                                         g12_res_grade_label, 5, 12, gwa_label))
+                                                                         g12_res_grade_label, 5, 12, gwa_label),
+                                       activebackground='#67C735')
         g12_res_add_button.grid(row=5, column=5)
 
         res_add_button_hover = ButtonHover(g12_res_add_button, 'subject_button', 'add')
@@ -1762,7 +1864,8 @@ class CalculateButtons:
 
         g12_elec_minus_button = tk.Button(self.window, text=" - ", font=("Helvetica", 10),
                                           command=lambda: self.grade_change('-', CalculateButtons.g12_grades[6],
-                                                                            g12_elec_grade_label, 6, 12, gwa_label))
+                                                                            g12_elec_grade_label, 6, 12, gwa_label),
+                                          activebackground='#DB5F44')
         g12_elec_minus_button.grid(row=7, column=0, padx=(200, 0))
 
         elec_minus_button_hover = ButtonHover(g12_elec_minus_button, 'subject_button', 'minus')
@@ -1774,7 +1877,8 @@ class CalculateButtons:
 
         g12_elec_add_button = tk.Button(self.window, text=" + ", font=("Helvetica", 10),
                                         command=lambda: self.grade_change('+', CalculateButtons.g12_grades[6],
-                                                                          g12_elec_grade_label, 6, 12, gwa_label))
+                                                                          g12_elec_grade_label, 6, 12, gwa_label),
+                                       activebackground='#67C735')
         g12_elec_add_button.grid(row=7, column=2, padx=(0, 25))
 
         elec_add_button_hover = ButtonHover(g12_elec_add_button, 'subject_button', 'add')
@@ -1854,11 +1958,13 @@ class CalculateButtons:
 
     def gwa_calculation(self, grade_level, grades=None, gwa_label=None):
         if grade_level == 'creation':
-            gwa_title_label = tk.Label(self.window, text="GWA", font=("Helvetica", 10))
-            gwa_title_label.place(x=10, y=75)
+            gwa_title_label = tk.Label(self.window, text="            GWA             ",
+                                       font=("Helvetica", 10), bg='white', borderwidth=2, relief='groove')
+            gwa_title_label.place(x=10, y=90)
 
-            gwa_label = tk.Label(self.window, text='1.000', font=("Helvetica", 10))
-            gwa_label.place(x=10, y=100)
+            gwa_label = tk.Label(self.window, text='            1.000             ', font=("Helvetica", 10),
+                                 bg='white', borderwidth=2, relief='groove')
+            gwa_label.place(x=10, y=115)
 
             return gwa_title_label, gwa_label
 
@@ -1876,7 +1982,7 @@ class CalculateButtons:
                 gwa_grade_7 = gwa_grade_7 + trailing_zero
 
             if gwa_label is not None:
-                gwa_label.config(text=gwa_grade_7)
+                gwa_label.config(text=f'            {gwa_grade_7}             ')
             # return gwa_grade_7
 
         elif grade_level == 8:
@@ -1893,7 +1999,7 @@ class CalculateButtons:
                 gwa_grade_8 = gwa_grade_8 + trailing_zero
 
             if gwa_label is not None:
-                gwa_label.config(text=gwa_grade_8)
+                gwa_label.config(text=f'            {gwa_grade_8}             ')
 
         elif grade_level == 9:
             gwa_grade_9 = (grades[0] * 1.0) + (grades[1] * 1.0) + \
@@ -1909,7 +2015,7 @@ class CalculateButtons:
                 gwa_grade_9 = gwa_grade_9 + trailing_zero
 
             if gwa_label is not None:
-                gwa_label.config(text=gwa_grade_9)
+                gwa_label.config(text=f'            {gwa_grade_9}             ')
 
         elif grade_level == 10:
             gwa_grade_10 = (grades[0] * 1.0) + (grades[1] * 1.0) + \
@@ -1925,7 +2031,7 @@ class CalculateButtons:
                 gwa_grade_10 = gwa_grade_10 + trailing_zero
 
             if gwa_label is not None:
-                gwa_label.config(text=gwa_grade_10)
+                gwa_label.config(text=f'            {gwa_grade_10}             ')
 
         elif grade_level == 11:
             gwa_grade_11 = (grades[0] * 1.7) + (grades[1] * 1.0) + \
@@ -1940,7 +2046,7 @@ class CalculateButtons:
                 gwa_grade_11 = gwa_grade_11 + trailing_zero
 
             if gwa_label is not None:
-                gwa_label.config(text=gwa_grade_11)
+                gwa_label.config(text=f'            {gwa_grade_11}             ')
 
         elif grade_level == 12:
             gwa_grade_12 = (grades[0] * 1.7) + (grades[1] * 1.0) + \
@@ -1955,7 +2061,7 @@ class CalculateButtons:
                 gwa_grade_12 = gwa_grade_12 + trailing_zero
 
             if gwa_label is not None:
-                gwa_label.config(text=gwa_grade_12)
+                gwa_label.config(text=f'            {gwa_grade_12}             ')
 
 
 class SaveGWA:
@@ -2421,5 +2527,3 @@ class AboutThisApp:
         self.back_button.destroy()
 
         IntroButtons(self.window)
-
-
