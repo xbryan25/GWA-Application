@@ -1967,14 +1967,14 @@ class SaveGWA:
         self.gwa = 0
 
         # Entry widget
-        self.entry = tk.Entry(self.window, font=("Helvetica", 8), justify='center')
+        self.entry = tk.Entry(self.window, font=("Helvetica", 10), justify='center', width=19)
         self.entry.place(x=10, y=200)
 
     def save_button_and_entry(self):
         # Save button
-        save_button = tk.Button(self.window, text="Save", font=("Helvetica", 15),
+        save_button = tk.Button(self.window, text="            Save            ", font=("Helvetica", 10),
                                 command=lambda: self.save_to_csv(self.entry))
-        save_button.place(x=10, y=150)
+        save_button.place(x=10, y=171)
 
         save_button_hover = ButtonHover(save_button, 'save_button')
 
@@ -2125,11 +2125,12 @@ class ImportGWA:
         self.gwa_label = gwa_label
 
         # Entry widget
-        self.entry = tk.Entry(self.window, font=("Helvetica", 8), justify='center')
-        self.entry.place(x=10, y=275)
+        self.entry = tk.Entry(self.window, font=("Helvetica", 10), justify='center', width=19)
+        self.entry.place(x=10, y=254)
 
     def import_button_and_entry(self):
-        import_button = tk.Button(self.window, text="Import", font=("Helvetica", 15), command=lambda: self.read_csv())
+        import_button = tk.Button(self.window, text="           Import           ", font=("Helvetica", 10),
+                                  command=lambda: self.read_csv())
         import_button.place(x=10, y=225)
 
         import_button_hover = ButtonHover(import_button, 'import_button')
@@ -2143,11 +2144,11 @@ class ImportGWA:
         with open('data.csv', 'r', newline='') as csv_file1:
             csv_read = csv.reader(csv_file1)
             for line in csv_read:
-                if self.in_csv(line):
+                if self.in_csv(line) == 'name exists':
                     self.entry.delete(0, len(self.entry.get()))
                     self.entry.insert(0, 'Success!')
                     self.entry.config(state='disabled')
-                    self.entry.bind("<Button-1>", self.name_taken_click)
+                    self.entry.bind("<Button-1>", self.success_click)
 
                     if self.grade_level == line[1] and self.grade_level == 'G7':
                         self.gwa_label.config(text=line[11])
@@ -2326,21 +2327,43 @@ class ImportGWA:
                         self.grades[6] = float(line[8])
                         self.subject_labels[6].config(text=f"{self.grades[6]}", font=("Helvetica", 10))
 
+                    else:
+                        self.entry.config(state='normal')
+                        self.entry.delete(0, len(self.entry.get()))
+                        self.entry.insert(0, 'Wrong grade level.')
+                        self.entry.config(state='disabled')
+                        self.entry.bind("<Button-1>", self.import_trouble_click)
+
                     return
+
+                elif self.in_csv(line) == 'no name':
+                    self.entry.delete(0, len(self.entry.get()))
+                    self.entry.insert(0, 'Name is blank.')
+                    self.entry.config(state='disabled')
+                    self.entry.bind("<Button-1>", self.import_trouble_click)
+
+                elif self.in_csv(line) == 'not in record':
+                    self.entry.delete(0, len(self.entry.get()))
+                    self.entry.insert(0, 'Name is not in record.')
+                    self.entry.config(state='disabled')
+                    self.entry.bind("<Button-1>", self.import_trouble_click)
 
     def in_csv(self, line):
         user_entry = self.entry.get()
-        if user_entry == line[0]:
-            return True
-        return False
+        if user_entry == '':
+            return 'no name'
+        elif user_entry == line[0]:
+            return 'name exists'
+        else:
+            return 'not in record'
 
-    def name_taken_click(self, event):
+    def success_click(self, event):
         self.entry.config(state='normal')
         self.entry.delete(0, 10)
 
-    def save_taken_click(self, event):
+    def import_trouble_click(self, event):
         self.entry.config(state='normal')
-        self.entry.delete(0, 10)
+        self.entry.delete(0, 21)
 
     @staticmethod
     def label_for_import(labels):
