@@ -2096,46 +2096,46 @@ class SaveGWA:
 
             file_size = os.path.getsize('data.csv')
 
-            if file_size > 0:
-                for line in csv_read:
-                    if entry.get() == '':
-                        entry.insert(0, 'Input name.')
-                        entry.config(state='disabled')
-                        entry.bind("<Button-1>", self.input_name_click)
-                        return
-                    elif entry.get() in line[0]:
-                        entry.delete(0, len(entry.get()))
-                        entry.insert(0, 'Name taken.')
-                        entry.config(state='disabled')
-                        entry.bind("<Button-1>", self.name_taken_click)
-                        return
-
-                with open('data.csv', 'a', newline='', encoding='utf-8') as csv_file2:
-                    csv_write = csv.writer(csv_file2, delimiter=',')
-
-                    self.get_gwa()
-                    self.grades.append(self.gwa)
-                    self.grades.insert(0, self.grade_level)
-                    self.grades.insert(0, entry.get())
-
-                    if entry.get() != 'Name taken.' and entry.get() != 'Name saved!' and entry.get() != 'Input name.':
-                        csv_write.writerow(self.grades)
-
-                    self.grades.pop()
-                    self.grades.pop(0)
-                    self.grades.pop(0)
-
-                    entry.delete(0, len(entry.get()))
-                    entry.insert(0, 'Name saved!')
-                    entry.config(state='disabled')
-                    entry.bind("<Button-1>", self.save_taken_click)
-                    return
-
-            else:
-                entry.delete(0, len(entry.get()))
+            if file_size == 0 and entry.get() == '':
                 entry.insert(0, 'Input name.')
                 entry.config(state='disabled')
                 entry.bind("<Button-1>", self.input_name_click)
+                return
+
+            for line in csv_read:
+                if entry.get() == '':
+                    entry.insert(0, 'Input name.')
+                    entry.config(state='disabled')
+                    entry.bind("<Button-1>", self.input_name_click)
+                    return
+                elif entry.get() in line[0]:
+                    entry.delete(0, len(entry.get()))
+                    entry.insert(0, 'Name taken.')
+                    entry.config(state='disabled')
+                    entry.bind("<Button-1>", self.name_taken_click)
+                    return
+
+            with open('data.csv', 'a', newline='', encoding='utf-8') as csv_file2:
+                csv_write = csv.writer(csv_file2, delimiter=',')
+
+                self.get_gwa()
+                self.grades.append(self.gwa)
+                self.grades.insert(0, self.grade_level)
+                self.grades.insert(0, entry.get())
+
+                if entry.get() != 'Name taken.' and entry.get() != 'Name saved!' and entry.get() != 'Input name.'\
+                        and entry.get() != '':
+                    csv_write.writerow(self.grades)
+
+                self.grades.pop()
+                self.grades.pop(0)
+                self.grades.pop(0)
+
+                entry.delete(0, len(entry.get()))
+                entry.insert(0, 'Name saved!')
+                entry.config(state='disabled')
+                entry.bind("<Button-1>", self.save_taken_click)
+                return
 
     def get_gwa(self):
         if self.grade_level == 'G7':
@@ -2490,7 +2490,7 @@ class ImportGWA:
 
     def import_trouble_click(self, event):
         self.entry.config(state='normal')
-        self.entry.delete(0, 21)
+        self.entry.delete(0, 22)
 
     @staticmethod
     def label_for_import(labels):
