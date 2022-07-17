@@ -2097,7 +2097,7 @@ class AboutThisApp:
         created_by = tk.Label(window, text="xbryan25", font=("Helvetica", 15), bg='black', fg='white')
         created_by.place(x=425, y=225)
 
-        version = tk.Label(window, text="v(u) (07-15-22)", font=("Helvetica", 15), bg='black', fg='white')
+        version = tk.Label(window, text="v1.0 (07-17-22)", font=("Helvetica", 15), bg='black', fg='white')
         version.place(x=425, y=250)
 
         # GitHub picture
