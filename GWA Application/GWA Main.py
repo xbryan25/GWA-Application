@@ -11,7 +11,7 @@ def main():
     window.configure(background="black")
     window.geometry('600x300')
 
-    buttons = IntroButtons(window)
+    IntroButtons(window)
 
     window.mainloop()
 
